@@ -1,5 +1,2 @@
-*
-!.zshrc
-!.bashrc
-!.profile
-!.p10k.zsh
+Makefile
+updatefiles.sh
