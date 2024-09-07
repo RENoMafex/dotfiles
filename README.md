@@ -20,9 +20,9 @@ for file in .*; do
     if [ -f "$file" ]; then
         if [ -f "../$file" ]; then
             cp -f "../$file" "$file"
-            echo "$file wurde überschrieben!"
+            echo "$file succsessful overwritten!"
         else
-            echo "Datei $file wurde im Übergeordneten verzeichnis nicht gefunden!"
+            echo "File $file couldnt be found in parent directory!"
         fi
     fi
 done
