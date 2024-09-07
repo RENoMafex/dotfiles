@@ -3,19 +3,17 @@
 Most commits will be automated from my home machine by using ``make``
 
 Makefile:
-
-´´´
+```make
 pullfiles:
     ./updatefiles.sh
     git add .
     git commit -m "automated commit"
     git push
 
-´´´
+```
 
 updatefiles.sh:
-
-´´´bash
+```bash
 #!/usr/bin/env bash
 
 for file in .*; do
@@ -29,4 +27,4 @@ for file in .*; do
     fi
 done
 
-´´´
+```
