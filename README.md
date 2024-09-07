@@ -3,7 +3,7 @@
 Most commits will be automated from my home machine by using ```make```
 
 Makefile:
-´´´makefile
+´´´make
 pullfiles:
     ./updatefiles.sh
     git add .
