@@ -1,9 +1,10 @@
 # My personal .dotfiles
 
-Most commits will be automated from my home machine by using ```make```
+Most commits will be automated from my home machine by using ``make``
 
 Makefile:
-´´´make
+
+´´´
 pullfiles:
     ./updatefiles.sh
     git add .
@@ -13,6 +14,7 @@ pullfiles:
 ´´´
 
 updatefiles.sh:
+
 ´´´bash
 #!/usr/bin/env bash
 
