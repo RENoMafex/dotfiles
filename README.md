@@ -1,6 +1,7 @@
 # My personal .dotfiles
 
-Most commits will be automated from my home machine by using ``make``
+Most commits will be automated from my home machine by using ``make``.
+``Makefile`` and ``updatefiles.sh`` are not in this repo, because those are useless on other machines than my own.
 
 Makefile:
 ```make
