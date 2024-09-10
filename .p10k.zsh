@@ -1684,7 +1684,6 @@
     p10k segment -f 208 -i '⭐' -t 'hello, %n'
   }
 
-
   # User-defined prompt segments may optionally provide an instant_prompt_* function. Its job
   # is to generate the prompt segment for display in instant prompt. See
   # https://github.com/romkatv/powerlevel10k#instant-prompt.
