@@ -5,11 +5,13 @@ Most commits will be automated from my home machine by using ``make``.
 
 **Makefile:**
 ```make
-pullfiles:
-    ./updatefiles.sh
-    git add .
-    git commit -m "automated commit"
-    git push
+.IGNORE: updategh
+
+updategh:
+	./updatefiles.sh
+	git add .
+	git commit -m "automated commit"
+	git push
 ```
 
 
@@ -18,14 +20,17 @@ pullfiles:
 #!/usr/bin/env bash
 
 for file in .*; do
-    if [ -f "$file" ]; then
-        if [ -f "../$file" ]; then
-            cp -f "../$file" "$file"
-            echo "$file succsessful overwritten!"
-        else
-            echo "File $file couldnt be found in parent directory!"
-        fi
-    fi
+	if [ -f "$file" ]; then
+		if [ -f "../$file" ]; then
+			if ! cmp -s "$file" "../$file"; then
+				cp -f -v "../$file" "$file"
+				echo "File \"$file\" successfully overwritten!"
+			else
+				echo "File \"../$file\" is unchanged, no need to overwrite \"$file\"."
+			fi
+		else
+			echo "File \"$file\" couldnt be found in parent directory!"
+		fi
+	fi
 done
-
 ```
