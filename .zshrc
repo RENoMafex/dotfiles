@@ -125,7 +125,7 @@ emulate sh -c '. ~/.profile'
 eval "$(_PIO_COMPLETE=zsh_source pio)"
 # End: PlatformIO Core completion support
 
-export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}'"
+export FZF_DEFAULT_OPTS="-m --preview 'bat --color=always {}'"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
