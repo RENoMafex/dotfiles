@@ -60,8 +60,6 @@ set backupdir=~/vimtmp//,.
 set directory=~/vimtmp//,.
 set undodir=~/vimtmp//,.
 
-set rtp+=~/poweline-virtualenv/venv/lib/python3.12/site-packages/powerline/bindings/vim/
-
 set laststatus=2
 
 set tabstop=4
