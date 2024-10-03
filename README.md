@@ -9,8 +9,7 @@ Most commits will be automated from my home machine by using ``make``.
 
 updategh:
 	./updatefiles.sh
-	git add .
-	git commit -m "automated commit"
+	git commit -a -m "automated commit"
 	git push
 ```
 
