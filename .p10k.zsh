@@ -32,18 +32,17 @@
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
-    status                  # exit code of the last command
+	status                  # exit code of the last command
+    newline
     # =========================[ Line #2 ]=========================
     newline                 # \n
     os_icon                 # os identifier
     dir                     # current directory
     vcs                     # git status
-    
     # =========================[ Line #3 ]=========================
     newline                 # \n
     vim_shell               # vim shell indicator (:sh)
     prompt_char             # prompt symbol
-
   )
 
   # The list of segments shown on the right. Fill it with less important segments.
@@ -52,11 +51,8 @@
   # last prompt line gets hidden if it would overlap with left prompt.
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
-    command_execution_time  # duration of the last command
-   
-
-
-
+	command_execution_time  # duration of the last command
+    newline
     # =========================[ Line #2 ]=========================
     newline                 # \n
     time                    # current time
@@ -107,7 +103,7 @@
     midnight_commander      # midnight commander shell (https://midnight-commander.org/)
     nix_shell               # nix shell (https://nixos.org/nixos/nix-pills/developing-with-nix-shell.html)
     chezmoi_shell           # chezmoi shell (https://www.chezmoi.io/)
-    vi_mode               # vi mode (you don't need this if you've enabled prompt_char)
+    vi_mode                 # vi mode (you don't need this if you've enabled prompt_char)
     # vpn_ip                # virtual private network indicator
     # load                  # CPU load
     # disk_usage            # disk usage
@@ -118,8 +114,6 @@
     taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
     per_directory_history   # Oh My Zsh per-directory-history local/global indicator
     # cpu_arch              # CPU architecture
-    
-
     # =========================[ Line #3 ]=========================
     newline                 # \n
     ip                      # ip address and bandwidth usage for a specified network interface
@@ -128,10 +122,7 @@
     # wifi                  # wifi speed
     # example               # example user-defined segment (see prompt_example function below) 
     battery                 # internal battery
-
-
   )
-
 
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.
   typeset -g POWERLEVEL9K_MODE=nerdfont-v3
