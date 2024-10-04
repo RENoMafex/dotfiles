@@ -115,8 +115,18 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-
 emulate sh -c '. ~/.profile'
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+####################################################################
+#                     Custom Segments for p10k                     #
+####################################################################
+
+
+
 ####################################################################
 #                     End of oh my zsh config!                     #
 ####################################################################
@@ -129,10 +139,7 @@ export FZF_DEFAULT_OPTS="-m --preview 'bat --color=always {}'"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-function omz() {source $ZSH/oh-my-zsh.sh}
 function :q() {exit}
 function lg() {lsgrep}
 function fd() {cd "$(dirname "$(fzf --ignore-case --no-preview)")"}
@@ -143,3 +150,6 @@ function git() {
 		command git "$@"
 	fi
 }
+
+source .sourcefunctions.zsh
+

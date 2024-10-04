@@ -32,7 +32,7 @@
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
-	status                  # exit code of the last command
+    status                  # exit code of the last command
     newline
     # =========================[ Line #2 ]=========================
     newline                 # \n
@@ -118,6 +118,7 @@
     newline                 # \n
     ip                      # ip address and bandwidth usage for a specified network interface
     # public_ip             # public IP address
+	my_uptime
     # proxy                 # system-wide http/https/ftp proxy
     # wifi                  # wifi speed
     # example               # example user-defined segment (see prompt_example function below) 
@@ -1707,6 +1708,8 @@
     prompt_example
   }
 
+  source .customprompt.zsh
+ 
   # User-defined prompt segments can be customized the same way as built-in segments.
   # typeset -g POWERLEVEL9K_EXAMPLE_FOREGROUND=208
   # typeset -g POWERLEVEL9K_EXAMPLE_VISUAL_IDENTIFIER_EXPANSION='⭐'
@@ -1748,3 +1751,4 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 
 (( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'
+
