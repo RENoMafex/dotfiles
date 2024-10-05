@@ -35,12 +35,13 @@
     status                  # exit code of the last command
     newline
     # =========================[ Line #2 ]=========================
-    newline                 # \n
+    newline
+    # =========================[ Line #3 ]=========================
     os_icon                 # os identifier
     dir                     # current directory
     vcs                     # git status
-    # =========================[ Line #3 ]=========================
     newline                 # \n
+    # =========================[ Line #4 ]=========================
     vim_shell               # vim shell indicator (:sh)
     prompt_char             # prompt symbol
   )
@@ -55,7 +56,7 @@
     newline
     # =========================[ Line #2 ]=========================
     newline                 # \n
-    time                    # current time
+    # =========================[ Line #3 ]=========================
     background_jobs         # presence of background jobs
     direnv                  # direnv status (https://direnv.net/)
     asdf                    # asdf version manager (https://github.com/asdf-vm/asdf)
@@ -114,11 +115,14 @@
     taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
     per_directory_history   # Oh My Zsh per-directory-history local/global indicator
     # cpu_arch              # CPU architecture
-    # =========================[ Line #3 ]=========================
-    newline                 # \n
-    ip                      # ip address and bandwidth usage for a specified network interface
-    # public_ip             # public IP address
 	my_uptime
+	ip
+    time                    # current time
+    newline
+    # =========================[ Line #4 ]=========================
+    # ip                      # ip address and bandwidth usage for a specified network interface
+    # public_ip             # public IP address
+	# my_uptime
     # proxy                 # system-wide http/https/ftp proxy
     # wifi                  # wifi speed
     # example               # example user-defined segment (see prompt_example function below) 
@@ -1668,7 +1672,7 @@
 
   ####################################[ time: current time ]####################################
   # Current time color.
-  typeset -g POWERLEVEL9K_TIME_FOREGROUND=66
+  typeset -g POWERLEVEL9K_TIME_FOREGROUND='#aaaaaa'
   # Format for the current time: 09:51:02. See `man 3 strftime`.
   typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
   # If set to true, time will update when you hit enter. This way prompts for the past
@@ -1678,13 +1682,13 @@
   # Custom icon.
   # typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
-  typeset -g POWERLEVEL9K_TIME_PREFIX='%244Fat '
+  typeset -g POWERLEVEL9K_TIME_PREFIX='at '
 
   ################################[ my_uptime: show uptime ]###################################
   # Current Uptime color.
-  typeset -g POWERLEVEL9K_MY_UPTIME_FOREGROUND='green'
+  typeset -g POWERLEVEL9K_MY_UPTIME_FOREGROUND='#80cf65'
   # Show seconds.
-  typeset -g POWERLEVEL9K_MY_UPTIME_SECONDS=false
+  typeset -g POWERLEVEL9K_MY_UPTIME_SECONDS=true
 
   # Example of a user-defined prompt segment. Function prompt_example will be called on every
   # prompt if `example` prompt segment is added to POWERLEVEL9K_LEFT_PROMPT_ELEMENTS or
