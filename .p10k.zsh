@@ -1680,6 +1680,12 @@
   # Custom prefix.
   typeset -g POWERLEVEL9K_TIME_PREFIX='%244Fat '
 
+  ################################[ my_uptime: show uptime ]###################################
+  # Current Uptime color.
+  typeset -g POWERLEVEL9K_MY_UPTIME_FOREGROUND='green'
+  # Show seconds.
+  typeset -g POWERLEVEL9K_MY_UPTIME_SECONDS=false
+
   # Example of a user-defined prompt segment. Function prompt_example will be called on every
   # prompt if `example` prompt segment is added to POWERLEVEL9K_LEFT_PROMPT_ELEMENTS or
   # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS. It displays an icon and orange text greeting the user.
