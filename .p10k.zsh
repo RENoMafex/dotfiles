@@ -1680,7 +1680,7 @@
   # behavior where they contain the end times of their preceding commands.
   typeset -g POWERLEVEL9K_TIME_UPDATE_ON_COMMAND=true
   # Custom icon.
-  # typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION=''
   # Custom prefix.
   typeset -g POWERLEVEL9K_TIME_PREFIX='at '
 
@@ -1689,7 +1689,11 @@
   typeset -g POWERLEVEL9K_MY_UPTIME_FOREGROUND='#80cf65'
   # Show seconds.
   typeset -g POWERLEVEL9K_MY_UPTIME_SECONDS=true
-
+  # icon  
+  typeset -g POWERLEVEL9K_MY_UPTIME_VISUAL_IDENTIFIER_EXPANSION='󰜷'
+  #prefix
+  typeset -g POWERLEVEL9K_MY_UPTIME_PREFIX=''
+  
   # Example of a user-defined prompt segment. Function prompt_example will be called on every
   # prompt if `example` prompt segment is added to POWERLEVEL9K_LEFT_PROMPT_ELEMENTS or
   # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS. It displays an icon and orange text greeting the user.
