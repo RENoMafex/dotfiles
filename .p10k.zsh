@@ -1722,7 +1722,7 @@
     prompt_example
   }
 
-  source .customprompt.zsh
+  source $HOME/.customprompt.zsh
  
   # User-defined prompt segments can be customized the same way as built-in segments.
   # typeset -g POWERLEVEL9K_EXAMPLE_FOREGROUND=208

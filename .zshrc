@@ -150,6 +150,3 @@ function git() {
 		command git "$@"
 	fi
 }
-
-source .sourcefunctions.zsh
-
