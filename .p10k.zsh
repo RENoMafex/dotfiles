@@ -116,7 +116,8 @@
     per_directory_history   # Oh My Zsh per-directory-history local/global indicator
     # cpu_arch              # CPU architecture
 	my_uptime
-	ip
+	my_wifi_ip
+	my_wired_ip
     time                    # current time
     newline
     # =========================[ Line #4 ]=========================
@@ -571,7 +572,7 @@
   # Show this many fractional digits. Zero means round to seconds.
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=3
   # Execution time color.
-  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=248
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='#cccc00'
   # Duration format: 1d 2h 3m 4s.
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FORMAT='d h m s'
   # Custom icon.
@@ -1684,16 +1685,6 @@
   # Custom prefix.
   typeset -g POWERLEVEL9K_TIME_PREFIX='at '
 
-  ################################[ my_uptime: show uptime ]###################################
-  # Current Uptime color.
-  typeset -g POWERLEVEL9K_MY_UPTIME_FOREGROUND='#80cf65'
-  # Show seconds.
-  typeset -g POWERLEVEL9K_MY_UPTIME_SECONDS=true
-  # icon  
-  typeset -g POWERLEVEL9K_MY_UPTIME_VISUAL_IDENTIFIER_EXPANSION='󰜷'
-  #prefix
-  typeset -g POWERLEVEL9K_MY_UPTIME_PREFIX=''
-  
   # Example of a user-defined prompt segment. Function prompt_example will be called on every
   # prompt if `example` prompt segment is added to POWERLEVEL9K_LEFT_PROMPT_ELEMENTS or
   # POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS. It displays an icon and orange text greeting the user.

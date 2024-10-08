@@ -1,10 +1,32 @@
-function prompt_my_uptime() {
+# MY UPTIME
+  typeset -g POWERLEVEL9K_MY_UPTIME_FOREGROUND='#80cf65'
+  typeset -g POWERLEVEL9K_MY_UPTIME_SHOW_SECONDS=true
+  typeset -g POWERLEVEL9K_MY_UPTIME_VISUAL_IDENTIFIER_EXPANSION='󰜷'
+  typeset -g POWERLEVEL9K_MY_UPTIME_PREFIX=''
+# MY WIRED IP
+  typeset -g POWERLEVEL9K_MY_WIRED_IP_FOREGROUND=38
+  typeset -g POWERLEVEL9K_MY_WIRED_IP_UNCONNECTED_FOREGROUND='#ffffff'
+  typeset -g POWERLEVEL9K_MY_WIRED_IP_UNCONNECTED_BACKGROUND='#aa1100'
+  typeset -g POWERLEVEL9K_MY_WIRED_IP_SHOWIFNAME=true
+  typeset -g POWERLEVEL9K_MY_WIRED_IP_SHOWUNCONNECTED=true
+  typeset -g POWERLEVEL9K_MY_WIRED_IP_VISUAL_IDENTIFIER_EXPANSION=''
+  typeset -g POWERLEVEL9K_MY_WIRED_IP_PREFIX='󰍸 '
+# MY WIFI IP
+  typeset -g POWERLEVEL9K_MY_WIFI_IP_FOREGROUND=38
+  typeset -g POWERLEVEL9K_MY_WIFI_IP_UNCONNECTED_FOREGROUND='#ffffff'
+  typeset -g POWERLEVEL9K_MY_WIFI_IP_UNCONNECTED_BACKGROUND='#aa1100'
+  typeset -g POWERLEVEL9K_MY_WIFI_IP_SHOWIFNAME=true
+  typeset -g POWERLEVEL9K_MY_WIFI_IP_SHOWUNCONNECTED=true
+  typeset -g POWERLEVEL9K_MY_WIFI_IP_VISUAL_IDENTIFIER_EXPANSION=''
+  typeset -g POWERLEVEL9K_MY_WIFI_IP_PREFIX=' '
+
+function prompt_my_uptime () {
 	local uptime_seconds_in=$( cat /proc/uptime | awk '{print int($1)}' )
 	local uptime_hours=$(( uptime_seconds_in / 3600 ))
 	local uptime_minutes=$(( (uptime_seconds_in % 3600) / 60 ))
 	local uptime_seconds=$(( uptime_seconds_in % 60 ))
 
-	if [[ $POWERLEVEL9K_MY_UPTIME_SECONDS == true ]]; then
+	if [[ $POWERLEVEL9K_MY_UPTIME_SHOW_SECONDS == true ]]; then
 		if (( uptime_minutes < 10 )); then
 			if (( uptime_seconds < 10 )); then
 				p10k segment -t "$uptime_hours:0$uptime_minutes:0$uptime_seconds"
@@ -25,4 +47,43 @@ function prompt_my_uptime() {
 			p10k segment -t "$uptime_hours:$uptime_minutes"
 		fi
 	fi
+}
+
+function prompt_my_wired_ip () {
+	local interface=$( ip link show | grep -Eo '^[0-9]+: ([Ee]\w+):' | grep -Eo '[Ee]\w+' | head -n 1 )
+
+	if [[ -n "$interface" ]]; then
+		local ip=$( ip -4 addr show $interface | grep -Eo '[0-9]{1,3}(\.[0-9]{1,3}){3}' | head -n 1 )
+	fi
+	if [[ -n "$ip" ]]; then
+		if [[ $POWERLEVEL9K_MY_WIRED_IP_SHOWIFNAME == true ]]; then
+			p10k segment -t "$interface: $ip"
+		else
+			p10k segment -t "$ip"
+		fi
+	else
+		if [[ $POWERLEVEL9K_MY_WIRED_IP_SHOWUNCONNECTED == true ]]; then
+			p10k segment -s UNCONNECTED -t "x"
+		fi
+	fi
+}
+
+function prompt_my_wifi_ip () {
+	local interface=$( ip link show | grep -Eo '^[0-9]+: ([Ww]\w+):' | grep -Eo '[Ww]\w+' | head -n 1 )
+
+	if [[ -n "$interface" ]]; then
+		local ip=$( ip -4 addr show $interface | grep -Eo '[0-9]{1,3}(\.[0-9]{1,3}){3}' | head -n 1 )
+	fi
+	if [[ -n "$ip" ]]; then
+		if [[ $POWERLEVEL9K_MY_WIFI_IP_SHOWIFNAME == true ]]; then
+			p10k segment -t "$interface: $ip"
+		else
+			p10k segment -t "$ip"
+		fi
+	else
+		if [[ $POWERLEVEL9K_MY_WIFI_IP_SHOWUNCONNECTED == true ]]; then
+			p10k segment -s UNCONNECTED -t "x"
+		fi
+	fi
+	
 }
