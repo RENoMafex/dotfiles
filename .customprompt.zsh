@@ -21,6 +21,9 @@
   typeset -g POWERLEVEL9K_MY_WIFI_IP_VISUAL_IDENTIFIER_EXPANSION=''
   typeset -g POWERLEVEL9K_MY_WIFI_IP_PREFIX=' '
   typeset -g POWERLEVEL9K_MY_WIFI_IP_UNCONNECTED_PREFIX=''
+# MY IF COUNT
+  typeset -g POWERLEVEL9K_MY_IF_COUNT_FOREGROUND=38
+  typeset -g POWERLEVEL9K_MY_IF_COUNT_PREFIX='#'
 
 #####################
 # BEGIN OF SEGMENTS #
@@ -91,4 +94,9 @@ function prompt_my_wifi_ip () {
 			p10k segment -s UNCONNECTED -t "x"
 		fi
 	fi
+}
+
+function prompt_my_if_count () {
+	local count=$( /bin/ip -4 addr show | /bin/grep -Eo '^[0-9]+: (e\w+|w\w+):' | /bin/wc -l )
+	p10k segment -t "$count"
 }

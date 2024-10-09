@@ -116,6 +116,7 @@
     per_directory_history   # Oh My Zsh per-directory-history local/global indicator
     # cpu_arch              # CPU architecture
 	my_uptime
+	my_if_count
 	my_wifi_ip
 	my_wired_ip
     time                    # current time
