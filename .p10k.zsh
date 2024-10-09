@@ -38,6 +38,7 @@
     newline
     # =========================[ Line #3 ]=========================
     os_icon                 # os identifier
+	user
     dir                     # current directory
     vcs                     # git status
     newline                 # \n
@@ -107,7 +108,6 @@
     vi_mode                 # vi mode (you don't need this if you've enabled prompt_char)
     # vpn_ip                # virtual private network indicator
     # load                  # CPU load
-    # disk_usage            # disk usage
     # ram                   # free RAM
     # swap                  # used swap
     todo                    # todo items (https://github.com/todotxt/todo.txt-cli)
@@ -127,7 +127,9 @@
     # proxy                 # system-wide http/https/ftp proxy
     # wifi                  # wifi speed
     # example               # example user-defined segment (see prompt_example function below) 
+    disk_usage              # disk usage
     battery                 # internal battery
+	host
   )
 
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.

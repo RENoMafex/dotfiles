@@ -7,10 +7,15 @@ Most commits will be automated from my home machine by using ``make``.
 ```make
 .IGNORE: updategh
 
+dryrun:
+	./updatefiles.sh
+
 updategh:
 	./updatefiles.sh
-	git commit -a -m "automated commit"
+	git add .
+	git commit -m "automated commit"
 	git push
+
 ```
 
 
