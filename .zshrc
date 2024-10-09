@@ -82,7 +82,6 @@ plugins=(
 	git
 	exercism
 	grc
-	zsh-autosuggestions
 	zsh-syntax-highlighting
 )
 

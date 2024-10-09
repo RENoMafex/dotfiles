@@ -20,6 +20,10 @@
   typeset -g POWERLEVEL9K_MY_WIFI_IP_VISUAL_IDENTIFIER_EXPANSION=''
   typeset -g POWERLEVEL9K_MY_WIFI_IP_PREFIX=' '
 
+#####################
+# BEGIN OF SEGMENTS #
+#####################
+
 function prompt_my_uptime () {
 	local uptime_seconds_in=$( /bin/cat /proc/uptime | /bin/awk '{print int($1)}' )
 	local uptime_hours=$(( uptime_seconds_in / 3600 ))
@@ -85,5 +89,4 @@ function prompt_my_wifi_ip () {
 			p10k segment -s UNCONNECTED -t "x"
 		fi
 	fi
-	
 }
