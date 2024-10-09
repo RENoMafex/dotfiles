@@ -24,6 +24,8 @@
 # MY IF COUNT
   typeset -g POWERLEVEL9K_MY_IF_COUNT_FOREGROUND=38
   typeset -g POWERLEVEL9K_MY_IF_COUNT_PREFIX='#'
+  typeset -g POWERLEVEL9K_MY_IF_COUNT_MAXUSUAL=2
+  typeset -g POWERLEVEL9K_MY_IF_COUNT_UNUSUAL_FOREGROUND='#cc2222'
 
 #####################
 # BEGIN OF SEGMENTS #
@@ -98,5 +100,9 @@ function prompt_my_wifi_ip () {
 
 function prompt_my_if_count () {
 	local count=$( /bin/ip -4 addr show | /bin/grep -Eo '^[0-9]+: (e\w+|w\w+):' | /bin/wc -l )
-	p10k segment -t "$count"
+	if [[ ( $count -le $POWERLEVEL9K_MY_IF_COUNT_MAXUSUAL ) && ( $count -gt 0 ) ]]; then
+		p10k segment -t "$count"
+	else
+		p10k segment -s UNUSUAL -t "$count"
+	fi
 }
