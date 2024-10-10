@@ -61,11 +61,14 @@ function prompt_my_uptime () {
 }
 
 function prompt_my_wired_ip () {
-	local interface=$( /bin/ip link show | /bin/grep -Eo '^[0-9]+: ([Ee]\w+):' | /bin/grep -Eo '[Ee]\w+' | /bin/head -n 1 )
-
-	if [[ -n "$interface" ]]; then
-		local ip=$( /bin/ip -4 addr show $interface | /bin/grep -Eo '[0-9]{1,3}(\.[0-9]{1,3}){3}' | /bin/head -n 1 )
-	fi
+	local ip=""
+	local interface
+	local try=1
+	while [[ -n $ip && $try -le 100 ]]; do
+		interface=$( /bin/ip link show | /bin/grep -Eo '^[0-9]+: ([Ee]\w+):' | /bin/grep -Eo '[Ee]\w+' | /bin/head -n $try )
+		ip=$( /bin/ip -4 addr show $interface | /bin/grep -Eo '[0-9]{1,3}(\.[0-9]{1,3}){3}' | /bin/head -n $try )
+		try=$((try+1))
+	done
 	if [[ -n "$ip" ]]; then
 		if [[ $POWERLEVEL9K_MY_WIRED_IP_SHOWIFNAME == true ]]; then
 			p10k segment -t "$interface: $ip"
