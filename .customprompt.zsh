@@ -7,7 +7,7 @@
   typeset -g POWERLEVEL9K_MY_WIRED_IP_FOREGROUND=38
   typeset -g POWERLEVEL9K_MY_WIRED_IP_UNCONNECTED_FOREGROUND='#ffffff'
   typeset -g POWERLEVEL9K_MY_WIRED_IP_UNCONNECTED_BACKGROUND='#aa1100'
-  typeset -g POWERLEVEL9K_MY_WIRED_IP_SHOWIFNAME=false
+  typeset -g POWERLEVEL9K_MY_WIRED_IP_SHOWIFNAME=true
   typeset -g POWERLEVEL9K_MY_WIRED_IP_SHOWUNCONNECTED=false
   typeset -g POWERLEVEL9K_MY_WIRED_IP_VISUAL_IDENTIFIER_EXPANSION=''
   typeset -g POWERLEVEL9K_MY_WIRED_IP_PREFIX='󰍸 '
@@ -16,7 +16,7 @@
   typeset -g POWERLEVEL9K_MY_WIFI_IP_FOREGROUND=38
   typeset -g POWERLEVEL9K_MY_WIFI_IP_UNCONNECTED_FOREGROUND='#ffffff'
   typeset -g POWERLEVEL9K_MY_WIFI_IP_UNCONNECTED_BACKGROUND='#aa1100'
-  typeset -g POWERLEVEL9K_MY_WIFI_IP_SHOWIFNAME=false
+  typeset -g POWERLEVEL9K_MY_WIFI_IP_SHOWIFNAME=true
   typeset -g POWERLEVEL9K_MY_WIFI_IP_SHOWUNCONNECTED=true
   typeset -g POWERLEVEL9K_MY_WIFI_IP_VISUAL_IDENTIFIER_EXPANSION=''
   typeset -g POWERLEVEL9K_MY_WIFI_IP_PREFIX=' '
@@ -64,10 +64,12 @@ function prompt_my_wired_ip () {
 	local ip=""
 	local interface
 	local try=1
-	while [[ -n $ip && $try -le 100 ]]; do
-		interface=$( /bin/ip link show | /bin/grep -Eo '^[0-9]+: ([Ee]\w+):' | /bin/grep -Eo '[Ee]\w+' | /bin/head -n $try )
-		ip=$( /bin/ip -4 addr show $interface | /bin/grep -Eo '[0-9]{1,3}(\.[0-9]{1,3}){3}' | /bin/head -n $try )
-		try=$((try+1))
+	while [[ -z $ip && $try -le 100 ]]; do
+		interface=$( /bin/ip link show | /bin/grep -Eo '^[0-9]+: ([Ee]\w+):' | /bin/grep -Eo '[Ee]\w+' | /bin/head -n $try | /bin/tail -n 1 )
+		if [[ -n $interface ]]; then
+			ip=$( /bin/ip -4 addr show $interface | /bin/grep -Eo '[0-9]{1,3}(\.[0-9]{1,3}){3}' | /bin/head -n 1 )
+			try=$((try+1))
+		fi
 	done
 	if [[ -n "$ip" ]]; then
 		if [[ $POWERLEVEL9K_MY_WIRED_IP_SHOWIFNAME == true ]]; then
