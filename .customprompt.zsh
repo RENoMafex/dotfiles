@@ -36,9 +36,9 @@ function prompt_my_uptime () {
 	local uptime_seconds_in=$( /bin/cat /proc/uptime | /bin/awk '{print int($1)}' )
 	local uptime_hours=$(( uptime_seconds_in / 3600 ))
 	local uptime_minutes=$(( (uptime_seconds_in % 3600) / 60 ))
-	local uptime_seconds=$(( uptime_seconds_in % 60 ))
 
 	if [[ $POWERLEVEL9K_MY_UPTIME_SHOW_SECONDS == true ]]; then
+	local uptime_seconds=$(( uptime_seconds_in % 60 ))
 		if (( uptime_minutes < 10 )); then
 			if (( uptime_seconds < 10 )); then
 				p10k segment -t "$uptime_hours:0$uptime_minutes:0$uptime_seconds"
