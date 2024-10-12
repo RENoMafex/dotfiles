@@ -35,7 +35,11 @@
     status                  # exit code of the last command
     newline
     # =========================[ Line #2 ]=========================
-    newline
+    #newline
+	my_if_count
+	my_wifi_ip
+	my_wired_ip
+	newline
     # =========================[ Line #3 ]=========================
     os_icon                 # os identifier
 	user
@@ -56,7 +60,7 @@
 	command_execution_time  # duration of the last command
     newline
     # =========================[ Line #2 ]=========================
-    newline                 # \n
+    #newline                 # \n
     # =========================[ Line #3 ]=========================
     background_jobs         # presence of background jobs
     direnv                  # direnv status (https://direnv.net/)
@@ -116,9 +120,6 @@
     per_directory_history   # Oh My Zsh per-directory-history local/global indicator
     # cpu_arch              # CPU architecture
 	my_uptime
-	my_if_count
-	my_wifi_ip
-	my_wired_ip
     time                    # current time
     newline
     # =========================[ Line #4 ]=========================
@@ -175,7 +176,7 @@
   if [[ $POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR != ' ' ]]; then
     # The color of the filler. You'll probably want to match the color of POWERLEVEL9K_MULTILINE
     # ornaments defined above.
-    typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_FOREGROUND=234
+    typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_FOREGROUND='#888888'
     # Start filler from the edge of the screen if there are no left segments on the first line.
     typeset -g POWERLEVEL9K_EMPTY_LINE_LEFT_PROMPT_FIRST_SEGMENT_END_SYMBOL='%{%}'
     # End filler on the edge of the screen if there are no right segments on the first line.
@@ -1716,8 +1717,6 @@
     prompt_example
   }
 
-  source $HOME/.customprompt.zsh
- 
   # User-defined prompt segments can be customized the same way as built-in segments.
   # typeset -g POWERLEVEL9K_EXAMPLE_FOREGROUND=208
   # typeset -g POWERLEVEL9K_EXAMPLE_VISUAL_IDENTIFIER_EXPANSION='⭐'

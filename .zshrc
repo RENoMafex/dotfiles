@@ -126,7 +126,8 @@ emulate sh -c '. ~/.profile'
 #                     Custom Segments for p10k                     #
 ####################################################################
 
-
+source $HOME/.customprompt.zsh
+# source $HOME/programming/sh/projects/P10K-Network-Segments/networksegments.zsh
 
 ####################################################################
 #                     End of oh my zsh config!                     #
