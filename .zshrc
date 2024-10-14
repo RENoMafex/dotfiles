@@ -137,6 +137,24 @@ emulate sh -c '. ~/.profile'
 eval "$(_PIO_COMPLETE=zsh_source pio)"
 # End: PlatformIO Core completion support
 
+
+# BEGIN HIGHLIGHTER CONFIG
+ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets)
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=white'
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=white,bold'
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument-unclosed]='bg=red'
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument-unclosed]='bg=red'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument-unclosed]='bg=red'
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument-unclosed]='bg=red'
+ZSH_HIGHLIGHT_STYLES[bracket-error]='bg=red'
+ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='bg=white'
+
+
+
+
+
+# END HIGHLIGHTER CONFIG
+
 export FZF_DEFAULT_OPTS="-m --preview 'bat --color=always {}'"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
