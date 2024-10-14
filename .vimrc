@@ -55,6 +55,7 @@ endif
 
 set number
 set relativenumber
+set modeline
 
 set backupdir=~/vimtmp//,.
 set directory=~/vimtmp//,.
