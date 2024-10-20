@@ -126,8 +126,8 @@ emulate sh -c '. ~/.profile'
 #                     Custom Segments for p10k                     #
 ####################################################################
 
-#source $HOME/.customprompt.zsh
- source $HOME/programming/sh/projects/P10K-Network-Segments/networksegments.zsh
+ source $HOME/.customprompt.zsh
+ # source $HOME/programming/sh/projects/P10K-Network-Segments/networksegments.zsh
 
 ####################################################################
 #                     End of oh my zsh config!                     #
@@ -142,20 +142,12 @@ eval "$(_PIO_COMPLETE=zsh_source pio)"
 ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets)
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=white'
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=white,bold'
-ZSH_HIGHLIGHT_STYLES[back-quoted-argument-unclosed]='bg=red'
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument-unclosed]='bg=red'
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument-unclosed]='bg=red'
-ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument-unclosed]='bg=red'
 ZSH_HIGHLIGHT_STYLES[bracket-error]='bg=red'
 ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='bg=white'
-
-
-
-
-
 # END HIGHLIGHTER CONFIG
 
 export FZF_DEFAULT_OPTS="-m --preview 'bat --color=always {}'"
+export GRC_CONFDIR="/usr/local/share/grc/"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
