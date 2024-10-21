@@ -54,7 +54,6 @@ if has('syntax') && has('eval')
 endif
 
 syntax on
-" colorscheme one-monokai
 
 set number
 set relativenumber
