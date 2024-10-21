@@ -53,6 +53,9 @@ if has('syntax') && has('eval')
   packadd! matchit
 endif
 
+syntax on
+" colorscheme one-monokai
+
 set number
 set relativenumber
 set modeline
@@ -67,3 +70,10 @@ set tabstop=4
 set shiftwidth=4
 
 set listchars=eol:$,trail:~,lead:~,extends:>,precedes:<,tab:-->
+set encoding=UTF-8
+
+
+" needs airline plugin
+let g:airline_theme='powerlineish'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
