@@ -71,8 +71,32 @@ set shiftwidth=4
 set listchars=eol:$,trail:~,lead:~,extends:>,precedes:<,tab:-->
 set encoding=UTF-8
 
+set background=dark
+
+set termguicolors
+
+let g:onedark_terminal_italics=1
+
+" colorscheme onedark
+
+function! s:RENoMafexColorscheme ()
+	highlight Normal		guifg=#ababab guibg=#000000 gui=NONE
+	highlight LineNr		guifg=#ffff00				gui=NONE
+	highlight Comment		guifg=#5c6370				gui=italic
+	highlight SpecialKey	guifg=#1f1f1f				gui=NONE
+	highlight! link NonText SpecialKey
+	highlight Constant		guifg=#00c0c0				gui=NONE
+	highlight Identifier	guifg=#00ffff				gui=bold
+	highlight Statement		guifg=#ffff30
+	autocmd FileType c,cpp \
+		highlight PreProc	guifg=#ff0000
+	highlight Type			guifg=#22ff22
+
+endfunction
+
+call s:RENoMafexColorscheme()
 
 " needs airline plugin
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='powerlineish'
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
