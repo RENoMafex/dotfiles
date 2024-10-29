@@ -77,20 +77,33 @@ set termguicolors
 
 let g:onedark_terminal_italics=1
 
-" colorscheme onedark
+colorscheme onedark
+
+highlight clear
 
 function! s:RENoMafexColorscheme ()
-	highlight Normal		guifg=#ababab guibg=#000000 gui=NONE
-	highlight LineNr		guifg=#ffff00				gui=NONE
-	highlight Comment		guifg=#5c6370				gui=italic
-	highlight SpecialKey	guifg=#1f1f1f				gui=NONE
-	highlight! link NonText SpecialKey
-	highlight Constant		guifg=#00c0c0				gui=NONE
-	highlight Identifier	guifg=#00ffff				gui=bold
+	highlight Normal		guifg=#ababab	guibg=#000000	cterm=NONE
+	highlight LineNr		guifg=#ffff00					cterm=NONE
+	highlight Comment		guifg=#5c6370					cterm=italic
+	highlight SpecialKey	guifg=#1f1f1f					cterm=NONE
+	highlight! link NonText			SpecialKey
+	highlight! link EndOfBuffer		SpecialKey
+	highlight Constant		guifg=#ffff00					cterm=underline
+	highlight Identifier	guifg=#00ffff					cterm=bold
 	highlight Statement		guifg=#ffff30
-	autocmd FileType c,cpp \
-		highlight PreProc	guifg=#ff0000
+	highlight PreProc		guifg=#ff0000
 	highlight Type			guifg=#22ff22
+	highlight Function		guifg=#cc00cc
+	highlight String		guifg=#ffa500
+	highlight Charakter		guifg=#00c0c0
+	highlight! link Number			Charakter
+	highlight Operator		guifg=#ff1111
+	highlight Keyword		guifg=#ff1111
+	highlight Include		guifg=#ff0000
+	highlight Special		guifg=#00ffff	guibg=#002020	cterm=bold
+	highlight Todo			guifg=#000000	guibg=#aaaaaa	cterm=bold
+	highlight Search		guifg=#000000	guibg=#ffa500	cterm=bold
+	highlight Visual		guifg=#000000	guibg=#ff5000
 
 endfunction
 
@@ -100,3 +113,5 @@ call s:RENoMafexColorscheme()
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='powerlineish'
 let g:airline_powerline_fonts = 1
+
+" TODO: make highlighting filetype dependent.

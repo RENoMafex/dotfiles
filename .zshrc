@@ -144,6 +144,8 @@ ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=white'
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=white,bold'
 ZSH_HIGHLIGHT_STYLES[bracket-error]='bg=red'
 ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='bg=white'
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=cyan'
+ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=cyan'
 # END HIGHLIGHTER CONFIG
 
 export FZF_DEFAULT_OPTS="-m --preview 'bat --color=always {}'"
@@ -157,7 +159,7 @@ function lg() {lsgrep}
 function fd() {cd "$(dirname "$(fzf --ignore-case --no-preview)")"}
 function git() {
 	if [ "$#" -eq 0 ]; then
-		command git status
+		command git status -sb
 	else
 		command git "$@"
 	fi
