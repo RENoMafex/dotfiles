@@ -53,7 +53,7 @@ if has('syntax') && has('eval')
   packadd! matchit
 endif
 
-syntax on
+syntax enable
 
 set number
 set relativenumber
