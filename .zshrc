@@ -164,3 +164,7 @@ function git() {
 		command git "$@"
 	fi
 }
+
+function gping() {
+    command gping --clear --color red,green,blue,yellow --vertical-margin 0 "$@"
+}

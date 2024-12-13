@@ -28,3 +28,4 @@ fi
 
 export PATH=$PATH:$HOME/.local/bin
 alias lg="lsgrep"
+. "$HOME/.cargo/env"
