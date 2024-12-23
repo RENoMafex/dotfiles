@@ -153,46 +153,4 @@ export GRC_CONFDIR="/usr/local/share/grc/"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-function :q() {exit}
-function lg() {lsgrep}
-function fd() {cd "$(dirname "$(fzf --ignore-case --no-preview)")"}
-function git() {
-	if [ "$#" -eq 0 ]; then
-		command git status -sb
-	else
-		command git "$@"
-	fi
-}
-
-function gping() {
-    command gping --clear --color red,green,blue,yellow --vertical-margin 0 "$@"
-}
-
-function gp() {
-	# Check if at least one address is provided
-	if [[ $# -lt 1 ]]; then
-		echo -n "IPs to Ping (separated by space): "
-		read gpingips
-	fi
-
-	echo -n "Total duration (seconds): "
-	read duration
-	echo -n "Ping interval (seconds): "
-	read interval
-
-	# Check if inputs are numbers
-	if [[ ! $duration =~ ^[0-9]+$ ]]; then
-		duration="30"
-	fi
-	
-	if [[ ! $interval =~ ^[0-9]+$ ]]; then
-		interval="0.2";
-	fi
-	
-	if [[ $# -lt 1 ]]; then
-		eval set -- $gpingips
-	fi
-
-	gping --buffer ${duration} --watch-interval ${interval} "$@"
-	unset duration interval gpingips
-}
+source .aliases
