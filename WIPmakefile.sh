@@ -1,14 +1,4 @@
 #!/bin/sh
-#	##      ####      ##    ##    ######
-#	##      ####      ##    ##    #######
-#	 ##    ##  ##    ##     ##    ##   ###
-#	 ##    ##  ##    ##     ##    ##   ##
-#	  ##  ##    ##  ##      ##    #######
-#	  ##  ##    ##  ##      ##    #####
-#	   ####      ####       ##    ##
-#	   ####      ####       ##    ##
-#	    ##        ##        ##    ##
-
 	sudo apt update
 	sudo apt install -y zsh # Requiement for oh my zsh
 	sudo apt install -y git # Requiement for oh my zsh
@@ -27,6 +17,9 @@
 	cd ..
 	rm -rf tempordir
 	
+# To use this script, copy and paste the following command in your terminal
+#
+
 #	##      ####      ##    ##    ######
 #	##      ####      ##    ##    #######
 #	 ##    ##  ##    ##     ##    ##   ###
