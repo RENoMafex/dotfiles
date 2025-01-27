@@ -153,4 +153,4 @@ export GRC_CONFDIR="/usr/local/share/grc/"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source .aliases
+source $HOME/.aliases
