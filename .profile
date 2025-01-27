@@ -27,5 +27,4 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 export PATH=$PATH:$HOME/.local/bin
-alias lg="lsgrep"
 . "$HOME/.cargo/env"
