@@ -28,7 +28,8 @@
 	echo "Press any key to continue"
 	read -n 1 -s
 	echo ""
-	mkdir -v tempordir && cd tempordir
+	mkdir -v tempordir
+	cd tempordir
 	echo ""
 	echo "Downloading dotfiles"
 	echo "Press any key to continue"
