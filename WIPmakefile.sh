@@ -1,5 +1,4 @@
 #!/bin/bash
-	set -x
 	echo ""
 	echo "Updating and upgrading the system via apt"
 	echo "Press any key to continue"
@@ -29,7 +28,7 @@
 	echo "Press any key to continue"
 	read -n 1 -s
 	echo ""
-	mkdir tempordir && cd tempordir
+	mkdir -v tempordir && cd tempordir
 	echo ""
 	echo "Installing oh my zsh"
 	echo "Press any key to continue"
@@ -49,10 +48,10 @@
 	echo ""
 	git clone --depth=1 https://github.com/RENoMafex/dotfiles.git
 	cd dotfiles
-	cp -fv .p10k.zsh ~/.p10k.zsh
-	cp -fv .zshrc ~/.zshrc
-	cp -fv .aliases ~/.aliases
-	cp -fv .customprompt ~/.customprompt
+	cp -fv .p10k.zsh $HOME/.p10k.zsh
+	cp -fv .zshrc $HOME/.zshrc
+	cp -fv .aliases $HOME/.aliases
+	cp -fv .customprompt $HOME/.customprompt
 	cd ..
 	cd ..
 	rm -rfv tempordir
