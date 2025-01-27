@@ -30,6 +30,16 @@
 	echo ""
 	mkdir -v tempordir && cd tempordir
 	echo ""
+	echo "Downloading dotfiles"
+	echo "Press any key to continue"
+	read -n 1 -s
+	echo ""
+	git clone --depth=1 https://github.com/RENoMafex/dotfiles.git
+	cp -fv dotfiles/.p10k.zsh $HOME/.p10k.zsh
+	cp -fv dotfiles/zshrc $HOME/.zshrc
+	cp -fv dotfiles/.aliases $HOME/.aliases
+	cp -fv dotfiles/.customprompt $HOME/.customprompt
+	echo ""
 	echo "Installing oh my zsh"
 	echo "Press any key to continue"
 	read -n 1 -s
@@ -41,17 +51,6 @@
 	read -n 1 -s
 	echo ""
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-	echo ""
-	echo "Downloading dotfiles"
-	echo "Press any key to continue"
-	read -n 1 -s
-	echo ""
-	git clone --depth=1 https://github.com/RENoMafex/dotfiles.git
-	cd dotfiles
-	cp -fv .p10k.zsh $HOME/.p10k.zsh
-	cp -fv .zshrc $HOME/.zshrc
-	cp -fv .aliases $HOME/.aliases
-	cp -fv .customprompt $HOME/.customprompt
 	cd ..
 	cd ..
 	rm -rfv tempordir
