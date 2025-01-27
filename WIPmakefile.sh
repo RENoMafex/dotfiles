@@ -29,7 +29,6 @@
 	read -n 1 -s
 	echo ""
 	mkdir -v tempordir
-	cd tempordir
 	echo ""
 	echo "Downloading dotfiles"
 	echo "Press any key to continue"
@@ -52,7 +51,6 @@
 	read -n 1 -s
 	echo ""
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-	cd ..
 	echo ""
 	echo "Removing temporary directory"
 	echo "Press any key to continue"
