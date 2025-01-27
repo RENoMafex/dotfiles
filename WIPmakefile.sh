@@ -18,7 +18,7 @@
 	rm -rf tempordir
 	
 # To use this script, copy and paste the following command in your terminal
-#
+# wget -O - https://raw.githubusercontent.com/RENoMafex/dotfiles/main/WIPmakefile.sh | sh
 
 #	##      ####      ##    ##    ######
 #	##      ####      ##    ##    #######
