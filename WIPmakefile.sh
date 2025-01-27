@@ -1,4 +1,4 @@
-#!/bin/bajsh
+#!/bin/bash
 	echo "Updating and upgrading the system via apt"
 	echo "Press any key to continue"
 	read -n 1 -s
