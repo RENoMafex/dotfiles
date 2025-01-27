@@ -40,8 +40,8 @@
 	cd ..
 	rm -rfv tempordir
 	
-# To use this script, copy and paste the following command in your terminal \
-wget -O /tmp/WIPmakefile.sh https://raw.githubusercontent.com/RENoMafex/dotfiles/master/WIPmakefile.sh && bash /tmp/WIPmakefile.sh
+# To use this script, copy and paste the following command in your terminal
+# wget -O /tmp/WIPmakefile.sh https://raw.githubusercontent.com/RENoMafex/dotfiles/master/WIPmakefile.sh && bash /tmp/WIPmakefile.sh
 
 
 #	##      ####      ##    ##    ######
