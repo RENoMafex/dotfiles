@@ -52,9 +52,18 @@
 	echo ""
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 	cd ..
-	cd ..
+	echo ""
+	echo "Removing temporary directory"
+	echo "Press any key to continue"
+	read -n 1 -s
+	echo ""
 	rm -rfv tempordir
-	
+	echo ""
+	echo "Done"
+	echo "Press any key to continue"
+	read -n 1 -s
+	echo ""
+
 # To use this script, copy and paste the following command in your terminal
 # wget -O /tmp/WIPmakefile.sh https://raw.githubusercontent.com/RENoMafex/dotfiles/master/WIPmakefile.sh && bash /tmp/WIPmakefile.sh
 
