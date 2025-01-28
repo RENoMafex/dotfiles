@@ -54,4 +54,4 @@ for file in .*; do
 done
 ```
 ## Disclaimer regarding "Free Software"
-Some scripts in this Repo may automatically download and install files and/or software that are not Free nor Open Source software. If you do not want that, dont use the scripts provided in this repo. By the time writing this paragraph all software which gets downloaded or installed is at least Open Source or even free software.
+Some scripts in this Repo may automatically download and install files and/or software that are neither Free nor Open Source software. If you do not want that, don't use the scripts provided in this repo. By the time writing this paragraph all software which gets downloaded or installed is at least Open Source or even free software.
