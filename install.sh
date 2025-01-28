@@ -9,11 +9,14 @@
 # 5. Asks the which dotfiles should be copied and performs the copy operation.
 # 6. Cleans up by removing the temporary directory and unsetting the variables.
 
+# To use this script run one of the following commands:
+# bash <(curl -s https://raw.githubusercontent.com/RENoMafex/dotfiles/main/install.sh)
+# bash <(wget -qO- https://raw.githubusercontent.com/RENoMafex/dotfiles/main/install.sh)
 
 read -p "Do you want to upgrade the system? (y/N): " response # Ask if the user wants to upgrade the system
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 	sudo apt update && sudo apt upgrade -y # Update and upgrade Machine
-elif [[ "$response" =~ ^(Mafex)$ ]]; then
+e lif [[ "$response" =~ ^(Mafex)$ ]]; then
 	sudo apt update && sudo apt upgrade -y # Update and upgrade Machine
 	MODE = "mafex" 
 else
