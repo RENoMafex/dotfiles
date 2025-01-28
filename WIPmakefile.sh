@@ -22,7 +22,7 @@
 	echo "Press any key to continue"
 	read -n 1 -s
 	echo ""
-	sudo chsh -s $(which zsh)
+	sudo -k chsh -s $(which zsh) $USER
 	echo ""
 	echo "making temporary directory"
 	echo "Press any key to continue"
@@ -45,7 +45,7 @@
 	echo "Press any key to continue"
 	read -n 1 -s
 	echo ""
-	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 	echo ""
 	echo "Installing powerlevel10k"
 	echo "Press any key to continue"
