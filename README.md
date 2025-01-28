@@ -1,6 +1,6 @@
 # My personal .dotfiles
 ### IMPORTANT NOTE
->This repo is **ALWAYS** WIP, which means, you should use the code and files in this Repo with caution. Especially `install.sh` is prone to Overwrite some of your already populated dotfiles.
+>This repo will **ALWAYS** be WIP, which means, you should use the code and files in this Repo with caution. Especially `install.sh` is prone to Overwrite some of your already populated dotfiles.
 
 ## How to use the `install.sh` script without downloading the whole repo yourself
 
