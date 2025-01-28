@@ -4,7 +4,7 @@
 	echo "Press any key to continue"
 	read -n 1 -s
 	echo ""
-	sudo apt update && sudo apt upgrade -y
+	sudo apt update #&& sudo apt upgrade -y
 	echo ""
 	echo "Installing zsh"
 	echo "Press any key to continue"
@@ -29,6 +29,7 @@
 	read -n 1 -s
 	echo ""
 	mkdir -v tempordir
+	cd tempordir
 	echo ""
 	echo "Downloading dotfiles"
 	echo "Press any key to continue"
@@ -56,6 +57,7 @@
 	echo "Press any key to continue"
 	read -n 1 -s
 	echo ""
+	cd ..
 	rm -rfv tempordir
 	echo ""
 	echo "Done"
