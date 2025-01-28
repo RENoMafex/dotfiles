@@ -39,13 +39,13 @@
 	cp -fv dotfiles/.p10k.zsh $HOME/.p10k.zsh
 	cp -fv dotfiles/.zshrc $HOME/.zshrc
 	cp -fv dotfiles/.aliases $HOME/.aliases
-	cp -fv dotfiles/.customprompt.zsh $HOME/.customprompt.zsh
+	cp -fv dotfiles/.customprompt.zsh $HOME/.customprompt
 	echo ""
 	echo "Installing oh my zsh"
 	echo "Press any key to continue"
 	read -n 1 -s
 	echo ""
-	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 	echo ""
 	echo "Installing powerlevel10k"
 	echo "Press any key to continue"
