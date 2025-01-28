@@ -10,6 +10,7 @@
 	cp -fv dotfiles/.zshrc $HOME/.zshrc
 	cp -fv dotfiles/.aliases $HOME/.aliases
 	cp -fv dotfiles/.customprompt.zsh $HOME/.customprompt.zsh
+	cp -fv dotfiles/.vimrc $HOME/.vimrc
 	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 	cd ..
