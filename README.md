@@ -1,5 +1,5 @@
 # My personal .dotfiles
-### NOTE
+### IMPORTANT NOTE
 >This repo is **ALWAYS** WIP, which means, you should use the code and files in this Repo with caution. Especially `install.sh` is prone to Overwrite some of your already populated dotfiles.
 
 ## How to use the `install.sh` script without downloading the whole repo yourself
@@ -13,8 +13,7 @@ rm -f /tmp/install.sh
 ```
 **NOTE:** This by default only works on Debian based based distributions because the `ìnstall.sh` script uses `apt`.
 
-
-
+## How this Repo gets populated
 Most commits will be automated from my home machine by using ``make``.
 `Makefile` and `updatefiles.sh` are not in this repo, because those are useless on other machines than my own.
 
@@ -54,3 +53,5 @@ for file in .*; do
 	fi
 done
 ```
+## Disclaimer regarding "Free Software"
+Some scripts in this Repo may automatically download and install files and/or software that are not Free nor Open Source software. If you do not want that, dont use the scripts provided in this repo. By the time writing this paragraph all software which gets downloaded or installed is at least Open Source or even free software.
