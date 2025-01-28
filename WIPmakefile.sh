@@ -37,9 +37,9 @@
 	echo ""
 	git clone --depth=1 https://github.com/RENoMafex/dotfiles.git
 	cp -fv dotfiles/.p10k.zsh $HOME/.p10k.zsh
-	cp -fv dotfiles/zshrc $HOME/.zshrc
+	cp -fv dotfiles/.zshrc $HOME/.zshrc
 	cp -fv dotfiles/.aliases $HOME/.aliases
-	cp -fv dotfiles/.customprompt $HOME/.customprompt
+	cp -fv dotfiles/.customprompt.zsh $HOME/.customprompt.zsh
 	echo ""
 	echo "Installing oh my zsh"
 	echo "Press any key to continue"
