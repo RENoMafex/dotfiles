@@ -79,13 +79,10 @@ HIST_STAMPS="dd.mm.yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	# git
 	grc
 	exercism
 	zsh-syntax-highlighting
 )
-
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -116,8 +113,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-emulate sh -c '. ~/.profile'
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -134,19 +129,10 @@ emulate sh -c '. ~/.profile'
 ####################################################################
 
 # Begin: PlatformIO Core completion support
-eval "$(_PIO_COMPLETE=zsh_source pio)"
+if command -v pio &> /dev/null; then
+	eval "$(_PIO_COMPLETE=zsh_source pio)"
+fi
 # End: PlatformIO Core completion support
-
-
-# BEGIN HIGHLIGHTER CONFIG
-ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets)
-ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=white'
-ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=white,bold'
-ZSH_HIGHLIGHT_STYLES[bracket-error]='bg=red'
-ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='bg=white'
-ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=cyan'
-ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=cyan'
-# END HIGHLIGHTER CONFIG
 
 export FZF_DEFAULT_OPTS="-m --preview 'bat --color=always {}'"
 export GRC_CONFDIR="/usr/local/share/grc/"
@@ -154,3 +140,17 @@ export GRC_CONFDIR="/usr/local/share/grc/"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source $HOME/.aliases
+
+####################################################################
+#                DON'T CHANGE ANY LINES AFTER THIS                 #
+####################################################################
+
+source $ZSH/oh-my-zsh.sh
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets)
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=white'
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=white,bold'
+ZSH_HIGHLIGHT_STYLES[bracket-error]='bg=red'
+ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='bg=white'
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=cyan'
+ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=cyan'
