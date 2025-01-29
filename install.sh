@@ -72,7 +72,7 @@ fi
 
 if [[ "$install_exercism_completion" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 	sudo mkdir -p ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/exercism
-	sudo wget -O ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/exercism/_exercism https://github.com/exercism/cli/blob/main/shell/exercism_completion.zsh
+	sudo wget -O ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/exercism/_exercism https://raw.githubusercontent.com/exercism/cli/refs/heads/main/shell/exercism_completion.zsh
 fi
 
 if [[ "$install_zsh_syntax_highlighting" =~ ^([yY][eE][sS]|[yY])$ ]]; then
