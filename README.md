@@ -23,13 +23,13 @@ Most commits will be automated from my home machine by using ``make``.
 .IGNORE: updategh
 
 dryrun:
-	./updatefiles.sh
+    ./updatefiles.sh
 
 push:
-	./updatefiles.sh
-	git add .
-	git commit -m "automated commit"
-	git push
+    ./updatefiles.sh
+    git add .
+    git commit -m "automated commit"
+    git push
 
 ```
 
@@ -39,18 +39,18 @@ push:
 #!/usr/bin/env bash
 
 for file in .*; do
-	if [ -f "$file" ]; then
-		if [ -f "../$file" ]; then
-			if ! cmp -s "$file" "../$file"; then
-				cp -f -v "../$file" "$file"
-				echo "File \"$file\" successfully overwritten!"
-			else
-				echo "File \"../$file\" is unchanged, no need to overwrite \"$file\"."
-			fi
-		else
-			echo "File \"$file\" couldnt be found in parent directory!"
-		fi
-	fi
+  if [ -f "$file" ]; then
+    if [ -f "../$file" ]; then
+      if ! cmp -s "$file" "../$file"; then
+        cp -f -v "../$file" "$file"
+        echo "File \"$file\" successfully overwritten!"
+      else
+        echo "File \"../$file\" is unchanged, no need to overwrite \"$file\"."
+      fi
+    else
+      echo "File \"$file\" couldnt be found in parent directory!"
+    fi
+  fi
 done
 ```
 ## Disclaimer regarding "Free Software"
