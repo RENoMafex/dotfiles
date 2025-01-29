@@ -71,7 +71,7 @@ if [[ "$install_ohmyzsh" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 fi
 
 if [[ "$install_exercism_completion" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-	mkdir -p $ZSH_CUSTOM/plugins/exercism
+	sudo mkdir -p $ZSH_CUSTOM/plugins/exercism
 	wget -O $ZSH_CUSTOM/plugins/exercism/_exercism https://github.com/exercism/cli/blob/main/shell/exercism_completion.zsh
 fi
 
