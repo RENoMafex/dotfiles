@@ -8,7 +8,7 @@ To install _my_ personal Dotfiles simply run:
 ```bash
 wget -q https://raw.githubusercontent.com/RENoMafex/dotfiles/refs/heads/master/install.sh -O /tmp/install.sh
 chmod +x /tmp/install.sh
-./tmp/install.sh
+/tmp/install.sh
 rm -f /tmp/install.sh
 ```
 **NOTE:** This by default only works on Debian based based distributions because the `ìnstall.sh` script uses `apt`.
