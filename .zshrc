@@ -79,7 +79,6 @@ HIST_STAMPS="dd.mm.yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	grc
 	exercism
 	zsh-syntax-highlighting
 )
@@ -146,6 +145,8 @@ source $HOME/.aliases
 ####################################################################
 
 source $ZSH/oh-my-zsh.sh
+source $ZSH/plugins/grc/grc.plugin.zsh	# Have to be sourced to after oh-my-zsh.sh make grc also work for ls
+										# another workaround is to edit "$ZSH/lib/theme-and-appearance.zsh"
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets)
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=white'
