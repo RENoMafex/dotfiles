@@ -22,14 +22,16 @@ elif [[ "$response" =~ ^([mM]afex)$ ]]; then
 else
 	sudo apt update # Only update Machine
 fi
+
 sudo apt install -y zsh # Requiement for oh my zsh
 sudo apt install -y git # Requiement for oh my zsh
 sudo -k chsh -s "$(which zsh)" "$USER" # Change default shell to zsh
 mkdir -v tempordir # Create a temporary directory
 cd tempordir # Go to the temporary directory
 git clone --depth=1 https://github.com/RENoMafex/dotfiles.git
+
 if [[ "$MODE" == "mafex" ]]; then
-	for i in copy_p10k copy_zshrc copy_aliases copy_customprompt copy_vimrc install_ohmyzsh install_powerlevel10k install_zsh_syntax_highlighting; do
+	for i in copy_p10k copy_zshrc copy_aliases copy_customprompt copy_vimrc install_ohmyzsh install_powerlevel10k install_zsh_syntax_highlighting install_exercism_completion ; do
 		eval $i="y"
 	done
 else
@@ -40,31 +42,46 @@ else
 	read -p "Copy \".vimrc\"? (y/N): " copy_vimrc
 	read -p "Install \"oh my zsh\"? (y/N): " install_ohmyzsh
 	read -p "Install \"zsh-syntax-highlighting\"? (y/N): " install_zsh_syntax_highlighting
+	read -p "Install \"exercism auto completion\" (exercism needs to be downloaded separately)? (y/N): " install_exercism_completion
 	read -p "Install \"Powerlevel10k\"? (y/N): " install_powerlevel10k
 fi
+
 if [[ "$copy_p10k" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 	cp -fv dotfiles/.p10k.zsh $HOME/.p10k.zsh
 fi
+
 if [[ "$copy_zshrc" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 	cp -fv dotfiles/.zshrc $HOME/.zshrc
 fi
+
 if [[ "$copy_aliases" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 	cp -fv dotfiles/.aliases $HOME/.aliases
 fi
+
 if [[ "$copy_customprompt" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 	cp -fv dotfiles/.customprompt.zsh $HOME/.customprompt.zsh
 fi
+
 if [[ "$copy_vimrc" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 	cp -fv dotfiles/.vimrc $HOME/.vimrc
 fi
+
 if [[ "$install_ohmyzsh" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 fi
+
+if [[ "$install_exercism_completion" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+	mkdir -p $ZSH_CUSTOM/plugins/exercism
+	wget -O $ZSH_CUSTOM/plugins/exercism/_exercism https://github.com/exercism/cli/blob/main/shell/exercism_completion.zsh
+fi
+
 if [[ "$install_zsh_syntax_highlighting" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 	git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi
+
 if [[ "$install_powerlevel10k" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 fi
+
 cd .. # Leave temporary directory
 rm -rfv tempordir # Remove temporary directory
