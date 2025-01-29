@@ -9,10 +9,9 @@
 # 5. Asks the which dotfiles should be copied and performs the copy operation.
 # 6. Cleans up by removing the temporary directory and unsetting the variables.
 
-# If you don't know how to run this script, please read the README.md file at 
+# If you don't know how to run this script, please read
 # https://github.com/RENOMafex/dotfiles
-# or
-# https://github.com/RENOMafex/dotfiles/blob/main/README.md
+
 
 read -p "Do you want to upgrade the system? (y/N): " response # Ask if the user wants to upgrade the system
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
@@ -30,7 +29,7 @@ mkdir -v tempordir # Create a temporary directory
 cd tempordir # Go to the temporary directory
 git clone --depth=1 https://github.com/RENoMafex/dotfiles.git
 if [[ "$MODE" == "mafex" ]]; then
-	for i in copy_p10k copy_zshrc copy_aliases copy_customprompt copy_vimrc install_ohmyzsh install_powerlevel10k; do
+	for i in copy_p10k copy_zshrc copy_aliases copy_customprompt copy_vimrc install_ohmyzsh install_powerlevel10k install_zsh_syntax_highlighting; do
 		eval $i="y"
 	done
 else
@@ -40,6 +39,7 @@ else
 	read -p "Copy \".customprompt.zsh\"? (y/N): " copy_customprompt
 	read -p "Copy \".vimrc\"? (y/N): " copy_vimrc
 	read -p "Install \"oh my zsh\"? (y/N): " install_ohmyzsh
+	read -p "Install \"zsh-syntax-highlighting\"? (y/N): " install_zsh_syntax_highlighting
 	read -p "Install \"Powerlevel10k\"? (y/N): " install_powerlevel10k
 fi
 if [[ "$copy_p10k" =~ ^([yY][eE][sS]|[yY])$ ]]; then
@@ -59,6 +59,9 @@ if [[ "$copy_vimrc" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 fi
 if [[ "$install_ohmyzsh" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
+fi
+if [[ "$install_zsh_syntax_highlighting" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+	git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi
 if [[ "$install_powerlevel10k" =~ ^([yY][eE][sS]|[yY])$ ]]; then
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
