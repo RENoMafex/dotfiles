@@ -1,6 +1,7 @@
-function :q() {exit}
-function lg() {lsgrep}
-function fd() {cd "$(dirname "$(fzf --ignore-case --no-preview)")"}
+#! /usr/bin/env zsh
+function :q() {command exit}
+function lg() {command lsgrep}
+function fd() {command cd "$(dirname "$(fzf --ignore-case --no-preview)")"}
 function git() {
 	if [ "$#" -eq 0 ]; then
 		command git status -sb
@@ -16,14 +17,11 @@ function gping() {
 function gp() {
 	# Check if at least one address is provided
 	if [[ $# -lt 1 ]]; then
-		echo -n "IPs to Ping (separated by space): "
-		read gpingips
+		read -p "IPS to Ping (separated by space): " gpingips
 	fi
 
-	echo -n "Total duration (seconds): "
-	read duration
-	echo -n "Ping interval (seconds): "
-	read interval
+	read -p "Total duration (seconds): " duration
+	read -p "Ping interval (seconds): " interval
 
 	# Check if inputs are numbers
 	if [[ ! $duration =~ ^[0-9]+$ ]]; then
@@ -38,6 +36,6 @@ function gp() {
 		eval set -- $gpingips
 	fi
 
-	gping --buffer ${duration} --watch-interval ${interval} "$@"
+	command gping --buffer ${duration} --watch-interval ${interval} "$@"
 	unset duration interval gpingips
 }
