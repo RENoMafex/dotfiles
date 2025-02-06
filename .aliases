@@ -36,6 +36,6 @@ function gp() {
 		eval set -- $gpingips
 	fi
 
-	command gping --buffer ${duration} --watch-interval ${interval} "$@"
+	gping --buffer ${duration} --watch-interval ${interval} "$@"
 	unset duration interval gpingips
 }
