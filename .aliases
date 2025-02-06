@@ -1,7 +1,7 @@
 #! /usr/bin/env zsh
-function :q() {command exit}
+function :q() {exit}
 function lg() {command lsgrep}
-function fd() {command cd "$(dirname "$(fzf --ignore-case --no-preview)")"}
+function fd() {cd "$(dirname "$(fzf --ignore-case --no-preview)")"}
 function git() {
 	if [ "$#" -eq 0 ]; then
 		command git status -sb
