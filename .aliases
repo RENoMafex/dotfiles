@@ -1,6 +1,9 @@
 #! /usr/bin/env zsh
-function :q() {exit}
-function lg() {command lsgrep}
+alias :q="exit 0"
+alias :Q=":q"
+alias lg="lsgrep"
+alias gping="gping --clear --color red,green,blue,yellow --vertical-margin 0 "$@""
+alias please="sudo"
 function fd() {cd "$(dirname "$(fzf --ignore-case --no-preview)")"}
 function git() {
 	if [ "$#" -eq 0 ]; then
@@ -10,9 +13,6 @@ function git() {
 	fi
 }
 
-function gping() {
-    command gping --clear --color red,green,blue,yellow --vertical-margin 0 "$@"
-}
 
 function gp() {
 	# Check if at least one address is provided

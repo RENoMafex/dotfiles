@@ -76,7 +76,7 @@ set background=dark
 set termguicolors
 
 let g:onedark_terminal_italics=1
-" colorscheme onedark
+colorscheme monokai_pro
 
 highlight clear
 
@@ -106,7 +106,7 @@ function! s:RENoMafexColorscheme ()
 
 endfunction
 
-call s:RENoMafexColorscheme()
+"call s:RENoMafexColorscheme()
 
 " needs airline plugin
 let g:airline#extensions#tabline#enabled = 1

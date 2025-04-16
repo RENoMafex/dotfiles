@@ -28,3 +28,5 @@ fi
 
 export PATH=$PATH:$HOME/.local/bin
 . "$HOME/.cargo/env"
+
+export PATH=$PATH:/usr/local/go/bin

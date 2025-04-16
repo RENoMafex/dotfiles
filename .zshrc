@@ -1,9 +1,11 @@
+# exec 2> >(while read -r line; do printf "\e[1;31mstderr:\e[0m %s\n" "$line" >&2; done)
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -88,6 +90,9 @@ plugins=(
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
+# make tree colourised
+export CLICOLOR_FORCE=1
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -115,7 +120,7 @@ plugins=(
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+source $HOME/.profile
 
 ####################################################################
 #                     Custom Segments for p10k                     #
@@ -141,6 +146,7 @@ export GRC_CONFDIR="/usr/local/share/grc/"
 
 source $HOME/.aliases
 
+
 ####################################################################
 #                DON'T CHANGE ANY LINES AFTER THIS                 #
 ####################################################################
@@ -154,3 +160,5 @@ ZSH_HIGHLIGHT_STYLES[bracket-error]='bg=red'
 ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='bg=white'
 ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=cyan'
 ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=cyan'
+
+
