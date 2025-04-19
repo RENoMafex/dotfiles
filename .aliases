@@ -4,6 +4,7 @@ alias :Q=":q"
 alias lg="lsgrep"
 alias gping="gping --clear --color red,green,blue,yellow --vertical-margin 0 "$@""
 alias please="sudo"
+alias vim="nvim"
 function fd() {cd "$(dirname "$(fzf --ignore-case --no-preview)")"}
 function git() {
 	if [ "$#" -eq 0 ]; then
