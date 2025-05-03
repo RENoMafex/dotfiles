@@ -8,7 +8,10 @@ alias vim="nvim"
 function fd() {cd "$(dirname "$(fzf --ignore-case --no-preview)")"}
 function git() {
 	if [ "$#" -eq 0 ]; then
-		command git status -sb
+		git -c color.status=always status -sb |
+		sed "1s/^##/$(printf '\033[32mS\033[0m\033[31mU\033[0m')/" &&
+		printf "\nM = modified\n? = unversioned\nA = added\nD = deleted\n"
+
 	else
 		command git "$@"
 	fi
