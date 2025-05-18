@@ -1,21 +1,53 @@
-#! /usr/bin/env zsh
+#! /usr/bin/env bash
 alias :q="exit 0"
 alias :Q=":q"
 alias lg="lsgrep"
 alias gping="gping --clear --color red,green,blue,yellow --vertical-margin 0 "$@""
 alias please="sudo"
+alias pls="please"
 alias vim="nvim"
 function fd() {cd "$(dirname "$(fzf --ignore-case --no-preview)")"}
 function git() {
 	if [ "$#" -eq 0 ]; then
 		git -c color.status=always status -sb |
-		sed "1s/^##/$(printf '\033[32mS\033[0m\033[31mU\033[0m')/" &&
+		sed "1s/^##/$(printf '\033[45mS\033[0m\033[31mU\033[0m')/" &&
 		printf "\nM = modified\n? = unversioned\nA = added\nD = deleted\n"
 
 	else
 		command git "$@"
 	fi
 }
+
+function cd() {
+	builtin cd "$@" || return
+	if [ -d ".git" ] || git rev-parse --is-inside-work-tree &>/dev/null; then
+		echo "\033[35m\033[1m[auto-fetch]\033[0m Git repo detected. Starting fetch..."
+
+		git fetch --quiet &! FETCH_PID=$!
+
+		echo "\033[35m\033[1m[auto-fetch]\033[0m Fetch running."
+		echo "\033[35m\033[1m[auto-fetch]\033[0m Press \033[1mENTER\033[0m to \033[31mcancel...\033[0m"
+
+		# Zsh-specific input check (non-blocking)
+		zmodload zsh/zselect 2>/dev/null
+
+		while kill -0 "$FETCH_PID" 2>/dev/null; do
+			# Check for keyboard input (non-blocking)
+			if zselect -t 100 -r 0; then
+				read -rs -k 1 key
+				echo -e "\n\033[35m\033[1m[auto-fetch]\033[0m Fetch will be \033[31mcancelled...\033[0m"
+				kill "$FETCH_PID" 2>/dev/null
+				wait "$FETCH_PID" 2>/dev/null
+				echo "\033[35m\033[1m[auto-fetch]\033[0m Fetch \033[31mcancelled.\033[0m"
+				return
+			fi
+		done
+
+		wait "$FETCH_PID" 2>/dev/null
+		echo "\033[35m\033[1m[auto-fetch]\033[0m Fetch \033[32mcompleted.\033[0m"
+	fi
+}
+
 
 
 function gp() {

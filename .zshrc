@@ -103,6 +103,8 @@ export CLICOLOR_FORCE=1
    export EDITOR='vim'
  fi
 
+fpath+=~/.zfunc
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -146,6 +148,9 @@ export GRC_CONFDIR="/usr/local/share/grc/"
 
 source $HOME/.aliases
 
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+autoload -U compinit && compinit
+source "$ZSH/oh-my-zsh.sh"
 
 ####################################################################
 #                DON'T CHANGE ANY LINES AFTER THIS                 #
@@ -162,3 +167,7 @@ ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=cyan'
 ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=cyan'
 
 
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
