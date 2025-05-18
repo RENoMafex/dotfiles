@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#! /usr/bin/env zsh
 alias :q="exit 0"
 alias :Q=":q"
 alias lg="lsgrep"
