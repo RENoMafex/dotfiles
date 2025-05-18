@@ -10,7 +10,7 @@ function fd() {cd "$(dirname "$(fzf --ignore-case --no-preview)")"}
 function git() {
 	if [ "$#" -eq 0 ]; then
 		git -c color.status=always status -sb |
-		sed "1s/^##/$(printf '\033[45mS\033[0m\033[31mU\033[0m')/" &&
+		sed "1s/^##/$(printf '\033[32mS\033[31mU\033[0m')/" &&
 		printf "\nM = modified\n? = unversioned\nA = added\nD = deleted\n"
 
 	else
@@ -21,31 +21,32 @@ function git() {
 function cd() {
 	builtin cd "$@" || return
 	if [ -d ".git" ] || git rev-parse --is-inside-work-tree &>/dev/null; then
-		echo "\033[35m\033[1m[auto-fetch]\033[0m Git repo detected. Starting fetch..."
+		COLOR='\033[35m'
+		echo "$COLOR\033[1m[auto-fetch]\033[0m Git repo detected. Starting fetch..."
 
 		git fetch --quiet &! # &! disowns the process so it even gets finished, if you close the shell.
 		FETCH_PID=$!
 
-		echo "\033[35m\033[1m[auto-fetch]\033[0m Fetch running."
-		echo "\033[35m\033[1m[auto-fetch]\033[0m Press \033[1mENTER\033[0m to \033[31mcancel...\033[0m"
+		echo "$COLOR\033[1m[auto-fetch]\033[0m Fetch running."
+		echo "$COLOR\033[1m[auto-fetch]\033[0m Press \033[1m[ENTER]\033[0m to \033[31mcancel...\033[0m"
 
-		# Zsh-specific input check (non-blocking)
 		zmodload zsh/zselect 2>/dev/null
 
 		while kill -0 "$FETCH_PID" 2>/dev/null; do
-			# Check for keyboard input (non-blocking)
 			if zselect -t 100 -r 0; then
 				read -rs -k 1 key
-				echo -e "\n\033[35m\033[1m[auto-fetch]\033[0m Fetch will be \033[31mcancelled...\033[0m"
+				read -t 0.01 -rs -k 3 discard 2>/dev/null
+				COLOR='\033[31m'
+				echo -e "\n$COLOR\033[1m[auto-fetch]\033[0m Fetch will be$COLOR cancelled...\033[0m"
 				kill "$FETCH_PID" 2>/dev/null
 				wait "$FETCH_PID" 2>/dev/null
-				echo "\033[35m\033[1m[auto-fetch]\033[0m Fetch \033[31mcancelled.\033[0m"
+				echo "$COLOR\033[1m[auto-fetch]\033[0m Fetch$COLOR cancelled.\033[0m"
 				return
 			fi
 		done
-
+		COLOR='\033[32m'
 		wait "$FETCH_PID" 2>/dev/null
-		echo "\033[35m\033[1m[auto-fetch]\033[0m Fetch \033[32mcompleted.\033[0m"
+		echo "$COLOR\033[1m[auto-fetch]\033[0m Fetch$COLOR completed.\033[0m"
 	fi
 }
 
