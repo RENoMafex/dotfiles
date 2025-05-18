@@ -18,7 +18,7 @@ function git() {
 	fi
 }
 
-function cd() {
+function cd() { # Autofetch
 	builtin cd "$@" || return
 	if [ -d ".git" ] || git rev-parse --is-inside-work-tree &>/dev/null; then
 		COLOR='\033[35m'
@@ -28,7 +28,7 @@ function cd() {
 		FETCH_PID=$!
 
 		echo "$COLOR\033[1m[auto-fetch]\033[0m Fetch running."
-		echo "$COLOR\033[1m[auto-fetch]\033[0m Press \033[1m[ENTER]\033[0m to \033[31mcancel...\033[0m"
+		echo "$COLOR\033[1m[auto-fetch]\033[0m Press \033[36 m\033[1m'ENTER'\033[0m to \033[31mcancel...\033[0m"
 
 		zmodload zsh/zselect 2>/dev/null
 
