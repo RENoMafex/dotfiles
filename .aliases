@@ -23,7 +23,8 @@ function cd() {
 	if [ -d ".git" ] || git rev-parse --is-inside-work-tree &>/dev/null; then
 		echo "\033[35m\033[1m[auto-fetch]\033[0m Git repo detected. Starting fetch..."
 
-		git fetch --quiet &! FETCH_PID=$!
+		git fetch --quiet &! # &! disowns the process so it even gets finished, if you close the shell.
+		FETCH_PID=$!
 
 		echo "\033[35m\033[1m[auto-fetch]\033[0m Fetch running."
 		echo "\033[35m\033[1m[auto-fetch]\033[0m Press \033[1mENTER\033[0m to \033[31mcancel...\033[0m"
