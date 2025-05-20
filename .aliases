@@ -6,7 +6,8 @@ alias gping="gping --clear --color red,green,blue,yellow --vertical-margin 0 "$@
 alias please="sudo"
 alias pls="please"
 alias vim="nvim"
-function fd() {cd "$(dirname "$(fzf --ignore-case --no-preview)")"}
+alias fd="fdfind"
+
 function git() {
 	if [ "$#" -eq 0 ]; then
 		git -c color.status=always status -sb |
@@ -20,7 +21,7 @@ function git() {
 
 function cd() { # Autofetch
 	builtin cd "$@" || return
-	if [ -d ".git" ] || git rev-parse --is-inside-work-tree &>/dev/null; then
+	if [ -d ".git" ]; then
 		COLOR='\033[35m'
 		echo "$COLOR\033[1m[auto-fetch]\033[0m Git repo detected. Starting fetch..."
 
