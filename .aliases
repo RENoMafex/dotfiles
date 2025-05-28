@@ -22,11 +22,11 @@ function git() {
 function cd() { # Autofetch
 	builtin cd "$@" || return
 	if [ -d ".git" ]; then
-		COLOR='\033[35m'
+		local COLOR='\033[35m' #purple
 		echo "$COLOR\033[1m[auto-fetch]\033[0m Git repo detected. Starting fetch..."
 
 		git fetch --quiet &! # &! disowns the process so it even gets finished, if you close the shell.
-		FETCH_PID=$!
+		local FETCH_PID=$!
 
 		echo "$COLOR\033[1m[auto-fetch]\033[0m Fetch running."
 		echo "$COLOR\033[1m[auto-fetch]\033[0m Press \033[36 m\033[1m'ENTER'\033[0m to \033[31mcancel...\033[0m"
@@ -37,7 +37,7 @@ function cd() { # Autofetch
 			if zselect -t 100 -r 0; then
 				read -rs -k 1 key
 				read -t 0.01 -rs -k 3 discard 2>/dev/null
-				COLOR='\033[31m'
+				local COLOR='\033[31m' #red
 				echo -e "\n$COLOR\033[1m[auto-fetch]\033[0m Fetch will be$COLOR cancelled...\033[0m"
 				kill "$FETCH_PID" 2>/dev/null
 				wait "$FETCH_PID" 2>/dev/null
@@ -45,13 +45,19 @@ function cd() { # Autofetch
 				return
 			fi
 		done
-		COLOR='\033[32m'
+		local COLOR='\033[32m' #green
 		wait "$FETCH_PID" 2>/dev/null
 		echo "$COLOR\033[1m[auto-fetch]\033[0m Fetch$COLOR completed.\033[0m"
+        local NUMBACK=$(git status -b --porcelain=v1 | grep -Eo "behind [0-9]+" | grep -Eo "[0-9]+")
+        local NUMHEAD=$(git status -b --porcelain=v1 | grep -Eo "ahead [0-9]+"  | grep -Eo "[0-9]+")
+        if [[ -n "$NUMBACK" ]]; then
+            echo "$COLOR\033[1m[auto-fetch]\033[0m You are \033[31m$NUMBACK commits behind!\033[0m"
+        fi
+        if [[ -n "$NUMHEAD" ]]; then
+            echo "$COLOR\033[1m[auto-fetch]\033[0m You are \033[32m$NUMHEAD commits ahead!\033[0m"
+        fi
 	fi
 }
-
-
 
 function gp() {
 	# Check if at least one address is provided
@@ -66,11 +72,11 @@ function gp() {
 	if [[ ! $duration =~ ^[0-9]+$ ]]; then
 		duration="30"
 	fi
-	
+
 	if [[ ! $interval =~ ^[0-9]+$ ]]; then
 		interval="0.2";
 	fi
-	
+
 	if [[ $# -lt 1 ]]; then
 		eval set -- $gpingips
 	fi
