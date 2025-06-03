@@ -146,17 +146,17 @@ export GRC_CONFDIR="/usr/local/share/grc/"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source $HOME/.aliases
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 autoload -U compinit && compinit
-source "$ZSH/oh-my-zsh.sh"
 
 ####################################################################
 #                DON'T CHANGE ANY LINES AFTER THIS                 #
 ####################################################################
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.aliases
+source $HOME/.bindkey
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets)
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=white'

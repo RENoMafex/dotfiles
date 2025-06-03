@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+builtin bindkey "^U"   undo                 # Undo
+builtin bindkey "^H"   fzf-history-widget   # search hist using fzf
+builtin bindkey "^S^S" clear-screen         # same as "clear" command
+builtin bindkey "^F"   fzf-cd-widget        # go to folder using fzf
+builtin bindkey "^Q"   push-input           # push back input
+
+# from here on its kinda vim inspired
+builtin bindkey "^W"   forward-word
+builtin bindkey "^B"   backward-word
+builtin bindkey "^D"   vi-delete
+builtin bindkey "^%"   vi-match-bracket
+builtin bindkey "^P"   vi-put-before
+builtin bindkey "^$"   vi-end-of-line
