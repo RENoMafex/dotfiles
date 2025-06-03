@@ -7,6 +7,7 @@ alias please="sudo"
 alias pls="please"
 alias vim="nvim"
 alias fd="fdfind"
+alias fetch="cd . #triggering auto-fetch"
 
 function git() {
 	if [ "$#" -eq 0 ]; then
@@ -51,10 +52,10 @@ function cd() { # Autofetch
         local NUMBACK=$(git status -b --porcelain=v1 | grep -Eo "behind [0-9]+" | grep -Eo "[0-9]+")
         local NUMHEAD=$(git status -b --porcelain=v1 | grep -Eo "ahead [0-9]+"  | grep -Eo "[0-9]+")
         if [[ -n "$NUMBACK" ]]; then
-            echo "$COLOR\033[1m[auto-fetch]\033[0m You are \033[31m$NUMBACK commits behind!\033[0m"
+            echo "$COLOR\033[1m[auto-fetch]\033[0m You are \033[31m\033[1m$NUMBACK commits\033[0m\033[31m behind!\033[0m"
         fi
         if [[ -n "$NUMHEAD" ]]; then
-            echo "$COLOR\033[1m[auto-fetch]\033[0m You are \033[32m$NUMHEAD commits ahead!\033[0m"
+            echo "$COLOR\033[1m[auto-fetch]\033[0m You are \033[32m\033[1m$NUMHEAD commits\033[0m\033[32m ahead!\033[0m"
         fi
 	fi
 }
