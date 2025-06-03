@@ -141,7 +141,10 @@ if command -v pio &> /dev/null; then
 fi
 # End: PlatformIO Core completion support
 
-export FZF_DEFAULT_OPTS="-m --preview 'bat --color=always {}'"
+export FZF_DEFAULT_OPTS='
+--preview="if [ -d {} ]; then grc tree --du -h -C -L 2 {}; else bat --color=always {}; fi"
+--walker="file,dir,follow,hidden"
+'
 export GRC_CONFDIR="/usr/local/share/grc/"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
