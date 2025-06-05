@@ -7,7 +7,16 @@ alias please="sudo"
 alias pls="please"
 alias vim="nvim"
 alias fd="fdfind"
-alias fetch="cd . #triggering auto-fetch"
+alias fetch="autofetch"
+
+function autofetch() {
+	if [ -d ".git" ]; then
+		cd .
+	else
+		echo "\033[31m\033[1m[auto-fetch]\033[0m No Git repo detected. Nothing to fetch..."
+		return 1
+	fi
+}
 
 function git() {
 	if [ "$#" -eq 0 ]; then
