@@ -130,7 +130,7 @@
     battery                 # internal battery
 	host
     # =========================[ Line #4 ]=========================
-	newline	                # display vi mode in the linbe where u write
+	newline	                # display vi mode in the line where u write
     vi_mode                 # vi mode (you don't need this if you've enabled prompt_char)
   )
 
