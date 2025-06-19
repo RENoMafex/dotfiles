@@ -95,23 +95,25 @@ function gp() {
 	unset duration interval gpingips
 }
 
-# Redefinition of fzf-cd-widget to use autofetch.
-function fzf-find-widget () {
+fzf-find-widget () {
 	setopt localoptions pipefail no_aliases 2> /dev/null
 	local dir="$(
     FZF_DEFAULT_COMMAND=${FZF_ALT_C_COMMAND:-} \
     FZF_DEFAULT_OPTS=$(__fzf_defaults "--reverse --walker=dir,follow,hidden --scheme=path" "${FZF_ALT_C_OPTS-} +m") \
     FZF_DEFAULT_OPTS_FILE='' $(__fzfcmd) < /dev/tty)" 
-	if [[ -z "$dir" ]]
-	then
+	if [[ -z "$dir" ]]; then
 		zle redisplay
 		return 0
 	fi
+	if [[ -f "$dir" ]]; then
+		dir="$(dirname "$dir")"
+	fi
 	zle push-line
-	BUFFER="cd -- ${(q)dir:a}" 
+	BUFFER="cd -- ${(q)dir}" 
 	zle accept-line
 	local ret=$? 
 	unset dir
 	zle reset-prompt
 	return $ret
 }
+zle -N fzf-find-widget # Register the widget

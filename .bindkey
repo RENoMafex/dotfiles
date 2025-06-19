@@ -3,7 +3,7 @@
 builtin bindkey "^U"   undo                 # Undo
 builtin bindkey "^H"   fzf-history-widget   # search hist using fzf
 builtin bindkey "^S^S" clear-screen         # same as "clear" command
-builtin bindkey "^F"   fzf-cd-widget        # go to folder using fzf
+builtin bindkey "^F"   fzf-find-widget        # go to folder using fzf
 builtin bindkey "^Q"   push-input           # push back input
 builtin bindkey "^E"   end-of-line          # jump to line ending
 
