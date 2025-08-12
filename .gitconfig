@@ -4,6 +4,6 @@
 [init]
 	defaultBranch = main
 [core]
-	pager = bat --language=diff -p
+	pager = bat -p
 [alias]
 	lg = log --all --decorate=full --oneline --graph
