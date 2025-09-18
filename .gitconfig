@@ -7,3 +7,4 @@
 	pager = bat -p
 [alias]
 	lg = log --all --decorate=short --oneline --graph
+	logg = log --stat
