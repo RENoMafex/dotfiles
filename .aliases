@@ -8,6 +8,7 @@ alias pls="please"
 alias vim="nvim"
 alias fd="fdfind"
 alias fetch="autofetch"
+alias math="julia -E"
 
 function autofetch() {
 	if [ -d ".git" ]; then
@@ -72,11 +73,13 @@ function cd() { # Autofetch
 function gp() {
 	# Check if at least one address is provided
 	if [[ $# -lt 1 ]]; then
-		read -p "IPS to Ping (separated by space): " gpingips
+		echo "IPS to Ping (separated by space): "
+		read gpingips
 	fi
-
-	read -p "Total duration (seconds): " duration
-	read -p "Ping interval (seconds): " interval
+	echo "Total duration to display (seconds): "
+	read duration
+	echo "Ping interval (seconds): "
+	read interval
 
 	# Check if inputs are numbers
 	if [[ ! $duration =~ ^[0-9]+$ ]]; then
