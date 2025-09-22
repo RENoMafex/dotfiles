@@ -9,6 +9,7 @@
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=/opt/gcc-15/bin:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -169,7 +170,7 @@ ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='bg=white'
 ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=cyan'
 ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=cyan'
 
-
+TEMPLDIR="/home/mafex/programming/templates"
 
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
