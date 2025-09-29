@@ -157,6 +157,7 @@ autoload -U compinit && compinit
 ####################################################################
 #                DON'T CHANGE ANY LINES AFTER THIS                 #
 ####################################################################
+export MY_TEMPLDIR="/home/mafex/programming/templates"
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
@@ -170,7 +171,6 @@ ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='bg=white'
 ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=cyan'
 ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=cyan'
 
-TEMPLDIR="/home/mafex/programming/templates"
 
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
