@@ -1,6 +1,7 @@
 [user]
 	name = Malte Schilling
 	email = schilling.malte@googlemail.com
+	signingkey = schilling.malte@googlemail.com
 [init]
 	defaultBranch = main
 [core]
