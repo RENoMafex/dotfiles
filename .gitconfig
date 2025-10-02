@@ -1,7 +1,7 @@
 [user]
 	name = Malte Schilling
-	email = schilling.malte@googlemail.com
-	signingkey = schilling.malte@googlemail.com
+	email = git@malte-schilling.eu
+	signingkey = git@malte-schilling.eu
 [init]
 	defaultBranch = main
 [core]
@@ -9,3 +9,5 @@
 [alias]
 	lg = log --all --decorate=short --oneline --graph
 	logg = log --stat
+[commit]
+	gpgsign = true
