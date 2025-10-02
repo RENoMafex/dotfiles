@@ -1,4 +1,5 @@
 #! /usr/bin/env zsh
+
 alias :q="exit 0"
 alias :Q=":q"
 alias lg="lsgrep"
@@ -8,7 +9,11 @@ alias pls="please"
 alias vim="nvim"
 alias fd="fdfind"
 alias fetch="autofetch"
-alias math="julia -E"
+
+function math () {
+	julia -E "$*"
+}
+alias math="noglob math"
 
 function autofetch() {
 	if [ -d ".git" ]; then
