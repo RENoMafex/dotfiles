@@ -36,6 +36,8 @@ function git() {
 }
 
 function cd() { # Autofetch
+	# TBH i think, that this function can be hugely improved.
+	# After disowning the process, it should be possible to just wait for it in the background.
 	builtin cd "$@" || return
 	if [ -d ".git" ]; then
 		local COLOR='\033[35m' #purple
