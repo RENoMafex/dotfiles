@@ -146,9 +146,9 @@ export FZF_DEFAULT_OPTS='
 --preview="if [ -d {} ]; then grc tree --du -h -C -L 2 {}; else bat --color=always {}; fi"
 --walker="file,dir,follow,hidden"
 '
-export GRC_CONFDIR="/usr/local/share/grc/"
+export GRC_CONFDIR="/usr/share/grc/"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
@@ -175,3 +175,9 @@ ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=cyan'
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+####################
+# Startup Commands #
+####################
+
+fastfetch -c examples/STARTUP.jsonc 
