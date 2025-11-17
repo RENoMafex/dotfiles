@@ -180,4 +180,11 @@ export NVM_DIR="$HOME/.config/nvm"
 # Startup Commands #
 ####################
 
-fastfetch -c examples/STARTUP.jsonc 
+
+if [ "$LINES" -gt 50 ]; then
+	fastfetch -c .startupbig.jsonc
+elif [ "$LINES" -gt 40 ]; then
+	fastfetch -c .startupmedium.jsonc
+else
+	fastfetch -c examples/7.jsonc
+fi
