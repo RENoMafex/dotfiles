@@ -181,9 +181,9 @@ export NVM_DIR="$HOME/.config/nvm"
 ####################
 
 if [ "$LINES" -gt 50 ]; then
-	fastfetch -c .startupbig.jsonc
+	fastfetch -c /home/mafex/.startupbig.jsonc
 elif [ "$LINES" -gt 40 ]; then
-	fastfetch -c .startupmedium.jsonc
+	fastfetch -c /home/mafex/.startupmedium.jsonc
 else
 	fastfetch -c examples/7.jsonc
 fi
