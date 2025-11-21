@@ -196,6 +196,12 @@
             "key": "│{#blue}│ {icon}  DNS       │{$4}│{#keys}│{$2}",
         },
         {
+            "type": "command",
+            "keyIcon": "󱇢",
+            "key": "│{#blue}│ {icon}  Gateway   │{$4}│{#keys}│{$2}",
+            "text": "ip route show default | awk '{print $3}'",
+        },
+        {
             "type": "custom",
             "key": "│{#blue}└──────────────┴{$1}┘{#keys}│",
             "format": ""
@@ -264,6 +270,20 @@
             "key": "│{#red}│ {icon}  Zig       │{$4}│{#keys}│{$2}",
             "text": "zig version",
             "format": "zig {}"
+        },
+        {
+            "type": "command",
+            "keyIcon": "",
+            "key": "│{#red}│ {icon}  Julia     │{$4}│{#keys}│{$2}",
+            "text": "julia --version",
+            "format": "julia {~14}"
+        },
+        {
+            "type": "command",
+            "keyIcon": "",
+            "key": "│{#red}│ {icon}  Python    │{$4}│{#keys}│{$2}",
+            "text": "python --version",
+            "format": "python {~7}"
         },
         {
             "type": "editor",
