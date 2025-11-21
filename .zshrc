@@ -83,7 +83,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	grc
-	exercism
+	# exercism
 	zsh-syntax-highlighting
 )
 
