@@ -19,7 +19,7 @@ if v:progname =~? "evim"
 endif
 
 " Get the defaults that most users want.
-source $VIMRUNTIME/defaults.vim
+" source $VIMRUNTIME/defaults.vim
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
@@ -76,7 +76,7 @@ set background=dark
 set termguicolors
 
 let g:onedark_terminal_italics=1
-colorscheme monokai_pro
+" colorscheme monokai_pro
 
 highlight clear
 
