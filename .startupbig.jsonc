@@ -89,7 +89,7 @@
         {
             "type": "disk",
             "key": "│{#cyan}│ {icon}  Disk      │{$4}│{#keys}│{$2}",
-            "format": "{size-used} \/ {size-total} ({size-percentage}) - {filesystem}",
+            "format": "{size-used} \/ {size-total} ({size-percentage}) - {filesystem}"
         },
         {
             "type": "battery",
@@ -193,13 +193,13 @@
             "type": "dns",
             "showType": "both",
             "keyIcon": "󰇖",
-            "key": "│{#blue}│ {icon}  DNS       │{$4}│{#keys}│{$2}",
+            "key": "│{#blue}│ {icon}  DNS       │{$4}│{#keys}│{$2}"
         },
         {
             "type": "command",
             "keyIcon": "󱇢",
             "key": "│{#blue}│ {icon}  Gateway   │{$4}│{#keys}│{$2}",
-            "text": "ip route show default | awk '{print $3}'",
+            "text": "ip route show default | awk '{print $3}'"
         },
         {
             "type": "custom",
@@ -248,7 +248,14 @@
             "keyIcon": "",
             "key": "│{#red}│ {icon}  Clang     │{$4}│{#keys}│{$2}",
             "text": "clang --version | findstr version",      // Finds the line with "version"
-            "format": "clang {~-6}"                           // Prints the last 6 characters (version number)
+            "format": "clang {~ -6}"                           // Prints the last 6 characters (version number)
+        },
+        {
+            "type": "command",
+            "keyIcon": "",
+            "key": "│{#red}│ {icon}  PIO Core  │{$4}│{#keys}│{$2}",
+            "text": "pio --version",
+            "format": "pio {~25}"
         },
         {
             "type": "command",
@@ -351,7 +358,7 @@
             "type": "custom",
             "key": "└─────────────────{$1}┘",                // Bottom border of the entire layout
             "format": ""
-        },
+        }
     ]
 }
 
