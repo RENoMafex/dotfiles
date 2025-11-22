@@ -136,12 +136,6 @@ source $HOME/.profile
 #                     End of oh my zsh config!                     #
 ####################################################################
 
-# Begin: PlatformIO Core completion support
-if command -v pio &> /dev/null; then
-	eval "$(_PIO_COMPLETE=zsh_source pio)"
-fi
-# End: PlatformIO Core completion support
-
 export FZF_DEFAULT_OPTS='
 --preview="if [ -d {} ]; then grc tree --du -h -C -L 2 {}; else bat --color=always {}; fi"
 --walker="file,dir,follow,hidden"
@@ -175,6 +169,12 @@ ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=cyan'
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Begin: PlatformIO Core completion support
+if command -v pio &> /dev/null; then
+	eval "$(_PIO_COMPLETE=zsh_source pio)"
+fi
+# End: PlatformIO Core completion support
 
 ####################
 # Startup Commands #
