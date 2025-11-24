@@ -16,6 +16,16 @@
         ],
         "brightColor": true
     },
+    "logo": {
+        "type": "file",
+        "source": "~/.archlogo38x25.txt",
+        "padding": {
+            "left": 1,
+            "right": 1,
+            "top": 1
+        },
+        "printRemaining": true
+    },
     "modules": [
         {
             "type": "version",
@@ -74,17 +84,9 @@
             "key": "│{#cyan}│ {icon}  RAM       │{$4}│{#keys}│{$2}"
         },
         {
-            "type": "swap",
-            "key": "│{#cyan}│ {icon}  SWAP      │{$4}│{#keys}│{$2}"
-        },
-        {
             "type": "cpu",
             "key": "│{#cyan}│ {icon}  CPU       │{$4}│{#keys}│{$2}",
             "showPeCoreCount": true
-        },
-        {
-            "type": "gpu",
-            "key": "│{#cyan}│ {icon}  GPU       │{$4}│{#keys}│{$2}"
         },
         {
             "type": "disk",
@@ -122,8 +124,8 @@
         },
         {
             "type": "gpu",
-            "key": "│{#green}│ {icon}  G-Driver  │{$4}│{#keys}│{$2}",
-            "format": "{driver}"
+            "key": "│{#green}│ {icon}  GPU       │{$4}│{#keys}│{$2}",
+            "format": "{vendor} {name} with {driver}"
         },
         {
             "type": "custom",

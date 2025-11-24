@@ -75,7 +75,7 @@
         {
             "type": "disk",
             "key": "│{#cyan}│ {icon}  Disk      │{$4}│{#keys}│{$2}",
-            "format": "{size-used} \/ {size-total} ({size-percentage}) - {filesystem}",
+            "format": "{size-used} \/ {size-total} ({size-percentage}) - {filesystem}"
         },
         {
             "type": "battery",
@@ -257,7 +257,7 @@
             "type": "custom",
             "key": "└─────────────────{$1}┘",                // Bottom border of the entire layout
             "format": ""
-        },
+        }
     ]
 }
 
