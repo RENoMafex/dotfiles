@@ -104,7 +104,8 @@ export CLICOLOR_FORCE=1
    export EDITOR='vim'
  fi
 
-fpath+=~/.zfunc
+export FPATH="$FPATH:$HOME/.zfunc"
+export COWPATH="$COWPATH:$HOME/.cowsay"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
