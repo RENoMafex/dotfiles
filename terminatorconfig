@@ -1,0 +1,27 @@
+[global_config]
+[keybindings]
+  copy = <Primary><Shift>c
+  line_up = <Primary><Alt>Page_Up
+  line_down = <Primary><Alt>Page_Down
+  help = #DISABLED
+[profiles]
+  [[default]]
+    audible_bell = True
+    visible_bell = True
+    background_darkness = 0.75
+    background_type = image
+    background_image = /home/mafex/termbg.png
+    font = FiraMono Nerd Font Mono 11
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]
