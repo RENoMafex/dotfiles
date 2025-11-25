@@ -22,41 +22,15 @@
         "padding": {
             "left": 1,
             "right": 1,
-            "top": 1
+            "top": 0
         },
         "printRemaining": true
     },
     "modules": [
         {
             "type": "version",
-            "key": "┌───────────────┬─{$1}┐\u001b[41D",
+            "key": "┌─────────────────{$1}┐\u001b[41D",
             "format": "\u001b[1m{#keys} {1} - {2} "
-        },
-        {
-            "type": "os",
-            // Key format breakdown for OS module:
-            // "│  {icon}  \u001b[s{sysname}\u001b[u\u001b[10C│{$3}│{$2}"
-            //
-            // │                    - Left border of key block
-            //   {icon}             - OS icon (defined internally by fastfetch)
-            //   \u001b[s           - ANSI escape: save cursor position (ESC[s)
-            // {sysname}            - Format variable: system name (e.g., "Linux", "Darwin")
-            // \u001b[u             - ANSI escape: restore cursor to saved position (ESC[u)
-            //                        Necessary because the length of `{sysname}` differs between different platforms
-            // \u001b[10C           - ANSI escape: move cursor right 10 columns (ESC[10C)
-            // │                    - Right border of key block (always 10 columns from left border)
-            // {$3}                 - Reference to constants[2]: move cursor right 47 columns
-            // │                    - Right border of value block
-            // {$2}                 - Reference to constants[1]: move cursor left 47 columns
-            //
-            // This creates a fixed-width layout where the key block is exactly 10 columns wide,
-            // regardless of the actual content length. The cursor manipulation ensures proper
-            // alignment for the table-like structure.
-            "key": "│  {icon}  \u001b[s{sysname}\u001b[u\u001b[10C│{$3}│{$2}"
-        },
-        {
-            "type": "locale",
-            "key": "│  {icon}  Locale    │{$3}│{$2}"
         },
 
         // Hardware section with cyan color theme
@@ -64,23 +38,6 @@
             "type": "custom",
             "key": "│{#cyan}┌──────────────┬{$1}┐{#keys}│\u001b[37D",
             "format": "{#bright_cyan} Hardware "
-        },
-        {
-            "type": "memory",
-            "key": "│{#cyan}│ {icon}  RAM       │{$4}│{#keys}│{$2}"
-        },
-        {
-            "type": "swap",
-            "key": "│{#cyan}│ {icon}  SWAP      │{$4}│{#keys}│{$2}"
-        },
-        {
-            "type": "cpu",
-            "key": "│{#cyan}│ {icon}  CPU       │{$4}│{#keys}│{$2}",
-            "showPeCoreCount": true
-        },
-        {
-            "type": "gpu",
-            "key": "│{#cyan}│ {icon}  GPU       │{$4}│{#keys}│{$2}"
         },
         {
             "type": "disk",
@@ -108,18 +65,9 @@
             "key": "│{#green}│ {icon}  Desktop   │{$4}│{#keys}│{$2}"
         },
         {
-            "type": "wm",
-            "key": "│{#green}│ {icon}  Session   │{$4}│{#keys}│{$2}"
-        },
-        {
             "type": "display",
             "key": "│{#green}│ {icon}  Display   │{$4}│{#keys}│{$2}",
             "compactType": "original-with-refresh-rate"
-        },
-        {
-            "type": "gpu",
-            "key": "│{#green}│ {icon}  G-Driver  │{$4}│{#keys}│{$2}",
-            "format": "{driver}"
         },
         {
             "type": "custom",
@@ -127,27 +75,31 @@
             "format": ""
         },
 
-        // Terminal section with yellow color theme
+        // Network section with blue color theme
         {
             "type": "custom",
-            "key": "│{#yellow}┌──────────────┬{$1}┐{#keys}│\u001b[37D",
-            "format": "{#bright_yellow} Terminal "
+            "key": "│{#blue}┌──────────────┬{$1}┐{#keys}│\u001b[39D",
+            "format": "{#bright_blue} Network "
         },
         {
-            "type": "shell",
-            "key": "│{#yellow}│ {icon}  Shell     │{$4}│{#keys}│{$2}"
+            "type": "localip",
+            "keyIcon": "󰩟",
+            "key": "│{#blue}│ {icon}  IPv4      │{$4}│{#keys}│{$2}",
+            "showIpv4": true,
+            "showIpv6": false,
+            "format": "{ifname}: {ipv4}"
         },
         {
-            "type": "terminal",
-            "key": "│{#yellow}│ {icon}  Terminal  │{$4}│{#keys}│{$2}"
-        },
-        {
-            "type": "terminalfont",
-            "key": "│{#yellow}│ {icon}  Term Font │{$4}│{#keys}│{$2}"
+            "type": "localip",
+            "keyIcon": "󰩟",
+            "key": "│{#blue}│ {icon}  IPv6      │{$4}│{#keys}│{$2}",
+            "showIpv4": false,
+            "showIpv6": true,
+            "format": "{ifname}: {ipv6}"
         },
         {
             "type": "custom",
-            "key": "│{#yellow}└──────────────┴{$1}┘{#keys}│",
+            "key": "│{#blue}└──────────────┴{$1}┘{#keys}│",
             "format": ""
         },
 
@@ -182,7 +134,14 @@
             "keyIcon": "",
             "key": "│{#red}│ {icon}  Clang     │{$4}│{#keys}│{$2}",
             "text": "clang --version | findstr version",      // Finds the line with "version"
-            "format": "clang {~-6}"                           // Prints the last 6 characters (version number)
+            "format": "clang {~ -6}"                           // Prints the last 6 characters (version number)
+        },
+        {
+            "type": "command",
+            "keyIcon": "",
+            "key": "│{#red}│ {icon}  PIO Core  │{$4}│{#keys}│{$2}",
+            "text": "pio --version",
+            "format": "pio {~25}"
         },
         {
             "type": "command",
@@ -206,15 +165,15 @@
             "format": "zig {}"
         },
         {
-            "type": "editor",
-            "key": "│{#red}│ {icon}  Editor    │{$4}│{#keys}│{$2}"
+            "type": "command",
+            "keyIcon": "",
+            "key": "│{#red}│ {icon}  Julia     │{$4}│{#keys}│{$2}",
+            "text": "julia --version",
+            "format": "julia {~14}"
         },
         {
-            "type": "command",
-            "keyIcon": "󰊢",
-            "key": "│{#red}│ {icon}  Git       │{$4}│{#keys}│{$2}",
-            "text": "git version",
-            "format": "git {~12}"
+            "type": "editor",
+            "key": "│{#red}│ {icon}  Editor    │{$4}│{#keys}│{$2}"
         },
         {
             "type": "custom",
@@ -231,12 +190,6 @@
         {
             "type": "uptime",
             "key": "│{#magenta}│ {icon}  Uptime    │{$4}│{#keys}│{$2}"
-        },
-        {
-            "type": "users",
-            "myselfOnly": true,                               // Only show current user
-            "keyIcon": "",
-            "key": "│{#magenta}│ {icon}  Login     │{$4}│{#keys}│{$2}"
         },
         {
             "condition": {                                    // Conditional module: only show on non-macOS
