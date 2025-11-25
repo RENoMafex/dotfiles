@@ -54,7 +54,7 @@ for file in .*; do
 done
 ```
 
-**Ready to copy colorful version:**
+**Ready to copy colorful version:** (uses a buttload of escape sequences)
 ```bash
 #!/usr/bin/env bash
 
