@@ -143,10 +143,11 @@ export FZF_DEFAULT_OPTS='
 '
 export GRC_CONFDIR="/usr/share/grc/"
 
-source <(fzf --zsh)
+
 
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
 autoload -U compinit && compinit
 
 ####################################################################
@@ -155,8 +156,9 @@ autoload -U compinit && compinit
 export MY_TEMPLDIR="/home/mafex/programming/templates"
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.aliases
-source $HOME/.bindkey
+source $HOME/.aliases.zsh
+source $HOME/.bindkey.zsh
+source $HOME/.fzf_widgets.zsh
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets)
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=white'
@@ -183,8 +185,8 @@ fi
 
 if [ "$LINES" -gt 50 ]; then
 	fastfetch -c /home/mafex/.startupbig.jsonc
-elif [ "$LINES" -gt 40 ]; then
+elif [ "$LINES" -gt 30 ]; then
 	fastfetch -c /home/mafex/.startupmedium.jsonc
 else
-	fastfetch -c examples/7.jsonc
+	fastfetch -c /home/mafex/.startupsmall.jsonc
 fi
