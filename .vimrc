@@ -59,9 +59,9 @@ set number
 set relativenumber
 set modeline
 
-set backupdir=~/vimtmp//,.
-set directory=~/vimtmp//,.
-set undodir=~/vimtmp//,.
+set backupdir=/home/mafex/vimtmp//,.
+set directory=/home/mafex/vimtmp//,.
+set undodir=/home/mafex/vimtmp//,.
 
 set laststatus=2
 
