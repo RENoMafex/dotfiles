@@ -144,6 +144,7 @@ fi
 export FZF_DEFAULT_OPTS='
 --preview="if [ -d {} ]; then grc tree --du -h -C -L 2 {}; else bat --color=always {}; fi"
 --walker="file,dir,follow,hidden"
+--multi
 '
 export GRC_CONFDIR="/usr/share/grc/"
 
