@@ -137,8 +137,8 @@ source $HOME/.profile
 #                     End of oh my zsh config!                     #
 ####################################################################
 
-if [ ! -d vimtmp ]; then
-	mkdir vimtmp
+if [ ! -d /home/mafex/vimtmp ]; then
+	mkdir /home/mafex/vimtmp
 fi
 
 export FZF_DEFAULT_OPTS='
