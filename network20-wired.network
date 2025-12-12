@@ -1,0 +1,9 @@
+[Match]
+Name=enp*
+
+[Network]
+DHCP=yes
+
+[DHCP]
+UseNTP=yes
+UseDomain=yes
