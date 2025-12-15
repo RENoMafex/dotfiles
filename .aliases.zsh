@@ -3,13 +3,14 @@
 alias :q="exit 0"
 alias :Q=":q"
 alias lg="lsgrep"
-alias gping="gping --clear --color red,green,blue,yellow --vertical-margin 0 "$@""
+alias gping="gping --clear --color red,green,blue,yellow --vertical-margin 0 "
 alias please="sudo"
 alias pls="please"
 alias vim="nvim"
 alias fd="fdfind"
 alias fetch="autofetch"
 alias cowfortune="cow_of_fortune"
+alias update="pls pacman -Sy && pacman -Qu && printf \"\n%d upgrades available!\n\" $(pacman -Qu | wc -l)"
 
 function math () {
 	julia -E "$*"
