@@ -37,7 +37,7 @@ function prompt_my_wired_ip () {
 	if [[ -n $interface ]]; then
 		local ip=$( /bin/ip -4 addr show $interface | /bin/grep -Eo '[0-9]{1,3}(\.[0-9]{1,3}){3}' | head -n 1 )
 		if [[ $POWERLEVEL9K_MY_WIRED_IP_SHOWNETSIZE == true ]]; then
-			local netmask=$( /bin/ip -4 addr show $interface | /bin/grep -Eo '/[0-9]{1,2}' )
+			local netmask=$( /bin/ip -4 addr show $interface | /bin/grep -Eo '/[0-9]{1,2}' | head -n 1 )
 		fi
 		if [[ $POWERLEVEL9K_MY_WIRED_IP_SHOWIFNAME == true ]]; then
 			p10k segment -t "$interface: %B$ip%b$netmask"
@@ -56,7 +56,7 @@ function prompt_my_wifi_ip () {
 	if [[ -n $interface ]]; then
 		local ip=$( /bin/ip -4 addr show $interface | /bin/grep -Eo '[0-9]{1,3}(\.[0-9]{1,3}){3}' | head -n 1 )
 		if [[ $POWERLEVEL9K_MY_WIFI_IP_SHOWNETSIZE == true ]]; then
-			local netmask=$( /bin/ip -4 addr show $interface | /bin/grep -Eo '/[0-9]{1,2}' )
+			local netmask=$( /bin/ip -4 addr show $interface | /bin/grep -Eo '/[0-9]{1,2}' | head -n 1 )
 		fi
 		if [[ $POWERLEVEL9K_MY_WIFI_IP_SHOWIFNAME == true ]]; then
 			p10k segment -t "$interface: %B$ip%b$netmask"
