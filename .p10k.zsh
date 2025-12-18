@@ -36,13 +36,13 @@
     newline
     # =========================[ Line #2 ]=========================
     #newline
-	my_if_count
-	my_wifi_ip
-	my_wired_ip
-	newline
+    my_if_count
+    my_wifi_ip
+    my_wired_ip
+    newline
     # =========================[ Line #3 ]=========================
     os_icon                 # os identifier
-	user
+    user
     dir                     # current directory
     vcs                     # git status
     newline                 # \n
@@ -57,7 +57,7 @@
   # last prompt line gets hidden if it would overlap with left prompt.
   typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
-	command_execution_time  # duration of the last command
+    command_execution_time  # duration of the last command
     newline
     # =========================[ Line #2 ]=========================
     background_jobs         # presence of background jobs
@@ -77,7 +77,7 @@
     # php_version           # php version (https://www.php.net/)
     # laravel_version       # laravel php framework version (https://laravel.com/)
     # java_version          # java version (https://www.java.com/)
-    # package               # name@version from package.json (https://docs.npmjs.com/files/package.json)
+    package                 # name@version from package.json (https://docs.npmjs.com/files/package.json)
     rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
     rvm                     # ruby version from rvm (https://rvm.io)
     fvm                     # flutter version management (https://github.com/leoafarias/fvm)
@@ -116,21 +116,21 @@
     taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
     per_directory_history   # Oh My Zsh per-directory-history local/global indicator
     # cpu_arch              # CPU architecture
-	my_uptime
+    my_uptime
     time                    # current time
     newline
     # =========================[ Line #3 ]=========================
     # ip                      # ip address and bandwidth usage for a specified network interface
     # public_ip             # public IP address
-	# my_uptime
+    # my_uptime
     # proxy                 # system-wide http/https/ftp proxy
     # wifi                  # wifi speed
     # example               # example user-defined segment (see prompt_example function below) 
     disk_usage              # disk usage
     battery                 # internal battery
-	host
+    host
     # =========================[ Line #4 ]=========================
-	newline	                # display vi mode in the linbe where u write
+    newline                 # display vi mode in the linbe where u write
     vi_mode                 # vi mode (you don't need this if you've enabled prompt_char)
   )
 
