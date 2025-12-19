@@ -52,7 +52,13 @@
             // This creates a fixed-width layout where the key block is exactly 10 columns wide,
             // regardless of the actual content length. The cursor manipulation ensures proper
             // alignment for the table-like structure.
-            "key": "│  {icon}  \u001b[s{sysname}\u001b[u\u001b[10C│{$3}│{$2}"
+            "key": "│  {icon}  \u001b[s{sysname}\u001b[u\u001b[10C│{$3}│{$2}",
+            "format": " "
+        },
+        {
+            "type": "command",
+            "key": "\u001b[A\u001b[18C{$3}{$2}",
+            "text": "printf \"%s @ %s\\n\" $(grep 'PRETTY_NAME' /etc/os-release | cut -d'=' -f2 | tr -d ' \\n\"') $(uname -r)"
         },
         {
             "type": "datetime",
