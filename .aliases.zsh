@@ -10,7 +10,7 @@ alias vim="nvim"
 alias fd="fdfind"
 alias fetch="autofetch"
 alias cowfortune="cow_of_fortune"
-alias update="pls pacman -Sy && pacman -Qu && printf \"\n%d upgrades available!\n\" $(pacman -Qu | wc -l)"
+alias update="pls pacman -Sy && pacman -Qu && printf \"\n%d upgrades available! \n\" $(pacman -Qu | wc -l)"
 
 function math () {
 	julia -E "$*"
