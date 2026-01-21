@@ -10,7 +10,13 @@ alias vim="nvim"
 alias fd="fdfind"
 alias fetch="autofetch"
 alias cowfortune="cow_of_fortune"
-alias update="pacman -Qu && printf \"\n%d upgrades available! \n\" $(sudo pacman -Sy && pacman -Qu | wc -l)"
+
+function update() {
+	sudo pacman -Sy
+	local updates=$(pacman -Qu | wc -l)
+	pacman -Qu
+	printf "\n\033[1m%d \033[32mupgrades available!\033[0m \n" $updates
+}
 
 function math () {
 	julia -E "$*"
