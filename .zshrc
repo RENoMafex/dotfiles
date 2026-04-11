@@ -160,6 +160,8 @@ autoload -U compinit && compinit
 ####################################################################
 export MY_TEMPLDIR="/home/mafex/programming/templates"
 
+export CARGO_TERM_COLOR=never
+
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases.zsh
 source $HOME/.bindkey.zsh
