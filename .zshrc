@@ -9,7 +9,7 @@
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-export PATH=/opt/gcc-15/bin:$PATH
+export PATH=/opt/gcc-15/bin:$HOME/bin:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -160,7 +160,13 @@ autoload -U compinit && compinit
 ####################################################################
 export MY_TEMPLDIR="/home/mafex/programming/templates"
 
-export CARGO_TERM_COLOR=never
+# export CARGO_TERM_COLOR=never
+
+_cargo() {
+	local -a commands
+	commands=( ${${${(M)"${(f)$(_call_program commands CARGO_TERM_COLOR=never cargo --list)}":#    *}/ ##/}/ ##/:} )
+	_describe -t commands 'command' commands
+}
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases.zsh
