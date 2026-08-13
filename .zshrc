@@ -9,7 +9,7 @@
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-export PATH=/opt/gcc-15/bin:$HOME/bin:$PATH
+export PATH=/opt/gcc-15/bin:$HOME/bin:$HOME/.cargo/bin:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -169,7 +169,6 @@ _cargo() {
 }
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.aliases.zsh
 source $HOME/.bindkey.zsh
 source $HOME/.fzf_widgets.zsh
 

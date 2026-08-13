@@ -23,4 +23,6 @@ export PATH=$PATH:$HOME/.local/bin
 
 export PATH=$PATH:/usr/local/go/bin
 
-PS1="> "
+#PS1="> "
+
+source .aliases.sh

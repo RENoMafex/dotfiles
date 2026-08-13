@@ -1,4 +1,4 @@
-#! /usr/bin/env zsh
+#! /usr/bin/env bash
 
 alias :q="exit 0"
 alias :Q=":q"
@@ -10,12 +10,17 @@ alias vim="nvim"
 alias fd="fdfind"
 alias fetch="autofetch"
 alias cowfortune="cow_of_fortune"
+alias zed="zeditor"
 
 function update() {
-	sudo pacman -Sy
+	sudo pacman -Syy
 	local updates=$(pacman -Qu | wc -l)
 	pacman -Qu
 	printf "\n\033[1m%d \033[32mupgrades available!\033[0m \n" $updates
+}
+
+function upgrade() {
+	sudo pacman -Syu
 }
 
 function math () {
