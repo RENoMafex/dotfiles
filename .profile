@@ -25,4 +25,4 @@ export PATH=$PATH:/usr/local/go/bin
 
 #PS1="> "
 
-source .aliases.sh
+source /home/mafex/.aliases.sh
