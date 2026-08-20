@@ -11,6 +11,7 @@ alias fd="fdfind"
 alias fetch="autofetch"
 alias cowfortune="cow_of_fortune"
 alias zed="zeditor"
+alias ok="return 0"
 
 function update() {
 	sudo pacman -Syy
